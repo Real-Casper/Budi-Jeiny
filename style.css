@@ -45,16 +45,15 @@ body {
   
   /* GRADIENT BUNGA MODERN */
   background-image: 
-    radial-gradient(circle at 60% 80%, #ffd1e0 0%, transparent 40%),
-    radial-gradient(circle at 20% 40%, #c3a1e2 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, #ffc09f 0%, transparent 60%),
-    url('assets/background-pattern.png'); 
+    
+    
+    url('assets/Bg_Depan.png'); 
   
   background-size: cover, cover, cover, cover; 
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed; 
-  background-color: #fcebeb; 
+  background-color: #a6d778; 
 }
 
 /* 3. Kartu Undangan (Cover) dengan Overlay dan Animasi */
@@ -63,13 +62,13 @@ body {
   width: 100%;
   padding: 60px 25px; 
   border-radius: 20px; 
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 15px 40px rgba(151, 5, 5, 0.2); 
   position: relative; 
   overflow: hidden; 
-  border: 1px solid rgba(212, 167, 183, 0.5); 
+  border: 3px solid rgba(186, 13, 137, 0.5); 
   animation: fadeIn var(--animation-duration) ease-out forwards;
   opacity: 0; 
-  animation-delay: 0.3s;
+  animation-delay: 0.2s;
 }
 
 /* --- OVERLAY KARTU --- */
@@ -120,7 +119,7 @@ body {
     z-index: 5; 
     opacity: 0;
     animation: fadeIn 0.8s ease-out forwards;
-    animation-delay: 0.5s;
+    animation-delay: 0s;
 }
 
 .running-text {
@@ -129,7 +128,7 @@ body {
     line-height: 20px;
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--color-primary); 
+    color: #684d5d;
     white-space: nowrap; 
     animation: scrollText 15s linear infinite; 
     padding-left: 100%; 
