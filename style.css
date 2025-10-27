@@ -12,9 +12,20 @@
   --animation-duration: 1.5s;
 }
 
+.ring-icon {
+  width: 80px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px auto; /* tengah dan beri jarak bawah */
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+
 /* Keyframes untuk Animasi Fade-In */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -108,31 +119,7 @@ body {
   background-position: center bottom;
 }
 
-/* --- GAYA TEKS BERJALAN --- */
-.running-text-container {
-    position: absolute;
-    top: 40px; 
-    left: 0;
-    width: 100%;
-    height: 20px;
-    overflow: hidden; 
-    z-index: 5; 
-    opacity: 0;
-    animation: fadeIn 0.8s ease-out forwards;
-    animation-delay: 0s;
-}
-
-.running-text {
-    position: absolute;
-    width: 200%; 
-    line-height: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #684d5d;
-    white-space: nowrap; 
-    animation: scrollText 15s linear infinite; 
-    padding-left: 100%; 
-}
+ 
 
 /* GAYA KHUSUS UNTUK NAMA TAMU (#guest-name) */
 #guest-name {

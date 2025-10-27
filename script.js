@@ -27,16 +27,23 @@ function bukaUndangan() {
 
 // Fungsi yang berjalan saat seluruh konten HTML dimuat
 document.addEventListener('DOMContentLoaded', () => {
-    const guestName = getGuestName();
-    const guestElement = document.getElementById('guest-name');
-    
-    if (guestElement) {
-        // Tampilkan sapaan tamu
-        guestElement.innerHTML = `Kepada Yth. Bapak/Ibu/Sdr/i: <br><strong>${guestName}</strong>`;
-        
-        // Terapkan animasi pada elemen nama tamu
-        guestElement.style.opacity = 0;
-        guestElement.style.animation = 'fadeIn 0.8s ease-out forwards';
-        guestElement.style.animationDelay = '0.7s';
-    }
+  // --- Tambahkan gambar cincin sebelum nama tamu ---
+  const guestElement = document.getElementById('guest-name');
+  if (guestElement) {
+      const ringImg = document.createElement('img');
+      ringImg.src = 'assets/cincin.png'; // pastikan file ini ada di folder /images
+      ringImg.alt = 'Cincin Pernikahan';
+      ringImg.classList.add('ring-icon'); // gunakan gaya CSS yang sudah ada
+      guestElement.parentNode.insertBefore(ringImg, guestElement);
+  }
+
+  // --- Lanjutkan fungsi tamu seperti biasa ---
+  const guestName = getGuestName();
+  
+  if (guestElement) {
+    guestElement.innerHTML = `Kepada Yth. Bapak/Ibu/Sdr/i: <br><strong>${guestName}</strong>`;
+    guestElement.style.opacity = 0;
+    guestElement.style.animation = 'fadeIn 0.8s ease-out forwards';
+    guestElement.style.animationDelay = '0.7s';
+  }
 });
