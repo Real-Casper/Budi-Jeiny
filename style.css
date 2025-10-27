@@ -1,40 +1,220 @@
-/* ... (SEMUA KODE CSS LAMA ANDA SEBELUMNYA DI SINI) ... */
+/* 1. Variabel Warna & Animasi */
+:root {
+  --color-primary: #d4a7b7; /* Dusty Pink */
+  --color-secondary: #fdfaf7; /* Krem Sangat Muda (Kartu) */
+  --color-text: #6a4c6a; /* Ungu Gelap Lembut */
+  --color-overlay: rgba(253, 250, 247, 0.9); /* Overlay semi-transparan */
+  
+  --font-heading: 'Great Vibes', cursive;
+  --font-body: 'Montserrat', sans-serif;
+  --size-names-mobile: 3.2rem; 
+  
+  --animation-duration: 1.5s;
+}
 
-/* GAYA KHUSUS UNTUK NAMA TAMU */
+/* Keyframes untuk Animasi Fade-In */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* KEYFRAMES UNTUK TEKS BERJALAN */
+@keyframes scrollText {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Reset Dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 2. Latar Belakang dengan Gradien Bunga Modern & Gambar */
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 15px; 
+  overflow-x: hidden; 
+  
+  /* GRADIENT BUNGA MODERN */
+  background-image: 
+    radial-gradient(circle at 60% 80%, #ffd1e0 0%, transparent 40%),
+    radial-gradient(circle at 20% 40%, #c3a1e2 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, #ffc09f 0%, transparent 60%),
+    url('assets/background-pattern.png'); 
+  
+  background-size: cover, cover, cover, cover; 
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-color: #fcebeb; 
+}
+
+/* 3. Kartu Undangan (Cover) dengan Overlay dan Animasi */
+.cover {
+  max-width: 400px; 
+  width: 100%;
+  padding: 60px 25px; 
+  border-radius: 20px; 
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); 
+  position: relative; 
+  overflow: hidden; 
+  border: 1px solid rgba(212, 167, 183, 0.5); 
+  animation: fadeIn var(--animation-duration) ease-out forwards;
+  opacity: 0; 
+  animation-delay: 0.3s;
+}
+
+/* --- OVERLAY KARTU --- */
+.cover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-overlay); 
+  z-index: -1; 
+}
+
+/* Elemen Dekoratif dari assets */
+.decorative-border-top, .decorative-border-bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 80px; 
+  background-repeat: no-repeat;
+  background-size: contain; 
+  opacity: 0.7; 
+  pointer-events: none; 
+  z-index: 1; 
+}
+
+.decorative-border-top {
+  top: 0;
+  background-image: url('assets/flower-border-top.png'); 
+  background-position: center top;
+}
+
+.decorative-border-bottom {
+  bottom: 0;
+  background-image: url('assets/flower-border-bottom.png'); 
+  background-position: center bottom;
+}
+
+/* --- GAYA TEKS BERJALAN --- */
+.running-text-container {
+    position: absolute;
+    top: 40px; 
+    left: 0;
+    width: 100%;
+    height: 20px;
+    overflow: hidden; 
+    z-index: 5; 
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.running-text {
+    position: absolute;
+    width: 200%; 
+    line-height: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary); 
+    white-space: nowrap; 
+    animation: scrollText 15s linear infinite; 
+    padding-left: 100%; 
+}
+
+/* GAYA KHUSUS UNTUK NAMA TAMU (#guest-name) */
 #guest-name {
     font-family: var(--font-body);
-    font-size: 1.0rem; /* Ukuran font lebih kecil dari nama mempelai */
+    font-size: 1.0rem; 
     font-weight: 400;
     line-height: 1.4;
     color: var(--color-text);
-    margin: 0 0 10px;
+    margin: 20px 0 10px; /* Jarak yang bagus setelah teks berjalan */
     opacity: 0.8;
-    
-    /* Pastikan Strong/Tebal memiliki warna primary */
-    #guest-name strong {
-        font-weight: 700;
-        color: var(--color-primary);
-        font-size: 1.2em; /* Sedikit lebih besar */
-        display: block; /* Membuat nama di baris baru */
-    }
 }
 
-/* Penyesuaian H1 agar tidak bertabrakan dengan nama tamu */
+#guest-name strong {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 1.2em; 
+    display: block; 
+}
+
+/* Teks Utama Cover */
 .cover h1 {
-    /* Hapus margin-top lama dan sesuaikan */
-    margin-top: 5px; 
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  margin-top: 5px; /* Disediakan ruang yang cukup */
+  margin-bottom: 5px;
+  opacity: 0.8;
+  color: var(--color-text);
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.8s;
 }
 
-/* ... (SEMUA KODE MEDIA QUERY ANDA) ... */
+.cover .names {
+  font-family: var(--font-heading);
+  font-size: var(--size-names-mobile); 
+  margin: 15px 0 8px;
+  color: var(--color-primary); 
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+  /* animation-delay diatur di HTML untuk urutan muncul */
+}
 
+.connector, .date-text {
+    color: var(--color-text);
+    opacity: 0; 
+    animation: fadeIn 0.8s ease-out forwards;
+    /* animation-delay diatur di HTML untuk urutan muncul */
+}
+
+/* 4. Tombol dengan Efek Hover Animasi */
+.open-btn {
+  background: var(--color-primary); 
+  color: #ffffff;
+  border: none;
+  padding: 13px 35px; 
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 6px 15px rgba(212, 167, 183, 0.6); 
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  max-width: 90%; 
+  width: auto;
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+  animation-delay: 1.6s;
+}
+
+.open-btn:hover {
+  background: #b88f9f; 
+  transform: scale(1.05) rotateZ(1deg); 
+  box-shadow: 0 10px 20px rgba(212, 167, 183, 0.8);
+}
+
+/* 5. Media Queries */
 @media (min-width: 550px) {
-    /* ... */
-    #guest-name {
-        font-size: 1.1rem;
-        margin: 0 0 15px;
-    }
-    #guest-name strong {
-        font-size: 1.4em;
-    }
-    /* ... */
+  .cover { max-width: 550px; padding: 80px 40px; }
+  .cover h1 { margin-top: 5px; }
+  .running-text-container { top: 60px; }
+  .cover .names { font-size: 4.5rem; }
+  #guest-name { margin: 10px 0 15px; }
 }
