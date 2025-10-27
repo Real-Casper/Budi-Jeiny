@@ -1,57 +1,40 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ... (SEMUA KODE CSS LAMA ANDA SEBELUMNYA DI SINI) ... */
+
+/* GAYA KHUSUS UNTUK NAMA TAMU */
+#guest-name {
+    font-family: var(--font-body);
+    font-size: 1.0rem; /* Ukuran font lebih kecil dari nama mempelai */
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--color-text);
+    margin: 0 0 10px;
+    opacity: 0.8;
+    
+    /* Pastikan Strong/Tebal memiliki warna primary */
+    #guest-name strong {
+        font-weight: 700;
+        color: var(--color-primary);
+        font-size: 1.2em; /* Sedikit lebih besar */
+        display: block; /* Membuat nama di baris baru */
+    }
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #ffeaa7, #fab1a0);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #2d3436;
+/* Penyesuaian H1 agar tidak bertabrakan dengan nama tamu */
+.cover h1 {
+    /* Hapus margin-top lama dan sesuaikan */
+    margin-top: 5px; 
 }
 
-.container {
-  text-align: center;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  max-width: 90%;
-}
+/* ... (SEMUA KODE MEDIA QUERY ANDA) ... */
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #e17055;
-}
-
-.names {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin: 1rem 0;
-}
-
-.date, .location {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-}
-
-button {
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  background: #0984e3;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background: #74b9ff;
+@media (min-width: 550px) {
+    /* ... */
+    #guest-name {
+        font-size: 1.1rem;
+        margin: 0 0 15px;
+    }
+    #guest-name strong {
+        font-size: 1.4em;
+    }
+    /* ... */
 }
