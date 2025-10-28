@@ -1,22 +1,18 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="id">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Undangan Pernikahan - Bunga & Ananda</title>
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- CSS Utama (Asumsikan style.css ada) -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="main-page">
-    <!-- Musik Latar -->
     <audio id="background-music" loop preload="auto">
         <source src="assets/song.mp3" type="audio/mp3">
         Browser Anda tidak mendukung elemen audio.
@@ -26,7 +22,6 @@
         <i class="fas fa-volume-up"></i>
     </button>
 
-    <!-- HEADER -->
     <header class="main-header section" id="home">
         <div class="ring-wrapper">
             <img src="assets/cincin.jpg" alt="Cincin Pernikahan Bunga dan Ananda" class="header-ring" />
@@ -40,13 +35,11 @@
         </p>
     </header>
 
-    <!-- COUNTDOWN -->
     <section class="countdown-section section">
         <h2 class="section-title">Menghitung Hari Bahagia</h2>
         <div id="countdown-timer" class="countdown-container"></div>
     </section>
 
-    <!-- EVENT DETAILS -->
     <section class="event-details section" id="event">
         <h2 class="section-title">Detail Acara</h2>
 
@@ -64,7 +57,6 @@
         </div>
     </section>
 
-    <!-- MAP -->
     <section class="map-section section" id="location">
         <h2 class="section-title">Peta Lokasi</h2>
         <p class="intro-text">Lokasi acara kami akan diadakan di Gedung Serbaguna Puri Indah.</p>
@@ -83,7 +75,6 @@
         </a>
     </section>
 
-    <!-- AYAT / QUOTE -->
     <section class="quote-section section">
         <p class="quote-text">
             "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan-pasangan dari jenismu sendiri,
@@ -92,7 +83,6 @@
         <p class="quote-source">— Q.S. Ar-Rum: 21</p>
     </section>
 
-    <!-- GALERI -->
     <section class="gallery-section section" id="gallery">
         <h2 class="section-title">Galeri Foto Momen Kami</h2>
         <div class="gallery-grid">
@@ -102,7 +92,6 @@
         </div>
     </section>
 
-    <!-- RSVP -->
     <section class="rsvp-section section" id="rsvp">
         <h2 class="section-title">Konfirmasi Kehadiran (RSVP)</h2>
         <p class="intro-text">Mohon konfirmasi kehadiran Anda selambat-lambatnya satu minggu sebelum acara.</p>
@@ -131,7 +120,6 @@
         </form>
     </section>
 
-    <!-- GUESTBOOK (Doa & Ucapan) -->
     <section class="guestbook-section section" id="guestbook">
         <h2 class="section-title">Doa & Ucapan</h2>
         <p class="intro-text">Berikan doa dan ucapan terbaik untuk pernikahan kami.</p>
@@ -151,7 +139,6 @@
         </form>
     </section>
 
-    <!-- FOOTER -->
     <footer class="main-footer section">
         <p class="closing-text">
             Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
@@ -170,7 +157,6 @@
         </div>
     </footer>
 
-    <!-- JavaScript Inline -->
     <script>
         // Countdown Timer
         const countdownDate = new Date('February 14, 2026 00:00:00').getTime();
@@ -200,11 +186,29 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // Toggle Musik
+        // Toggle Musik dan Autoplay Logic
         const music = document.getElementById('background-music');
         const toggleBtn = document.getElementById('music-toggle-btn');
         const icon = toggleBtn.querySelector('i');
 
+        // Logic untuk memulai musik jika datang dari tombol "Buka Undangan"
+        document.addEventListener('DOMContentLoaded', () => {
+            if (sessionStorage.getItem('playMusicOnLoad') === 'true') {
+                music.play().catch(error => {
+                    console.log('Autoplay diblokir browser. Pengguna perlu mengklik tombol musik manual.');
+                    // Jika gagal play (diblokir), ikon tetap volume-up (asumsi play)
+                });
+                // Hapus penanda agar tidak berulang kali mencoba play saat refresh biasa
+                sessionStorage.removeItem('playMusicOnLoad');
+            }
+            // Tambahkan event listener untuk memuat nama tamu (jika ada)
+             const urlParams = new URLSearchParams(window.location.search);
+             const guestName = urlParams.get('nama') || 'Tamu Undangan';
+             // Tidak ada elemen khusus untuk nama tamu di main.html, biasanya ditaruh di sini
+             // Jika Anda ingin menampilkannya, tambahkan elemen <h2> di main-header
+        });
+        
+        // Toggle Musik
         toggleBtn.addEventListener('click', () => {
             if (music.paused) {
                 music.play();

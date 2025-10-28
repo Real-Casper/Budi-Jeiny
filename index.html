@@ -1,20 +1,16 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="id">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Undangan Pernikahan Animasi Modern - Bunga & Ananda</title>
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome (untuk ikon musik) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- CSS Utama (Asumsikan style.css ada; tambahkan inline jika perlu) -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- Inline CSS untuk Animasi Dasar (jika style.css belum lengkap) -->
     <style>
         .cover { text-align: center; padding: 50px; position: relative; }
         .decorative-border-top, .decorative-border-bottom { /* Tambahkan styling border jika diperlukan, misalnya garis emas */ }
@@ -23,21 +19,15 @@
         .open-btn { padding: 15px 30px; background: #d4af37; color: white; border: none; cursor: pointer; font-size: 18px; border-radius: 5px; transition: background 0.3s; }
         .open-btn:hover { background: #b8860b; }
         .music-toggle-btn { position: fixed; top: 20px; right: 20px; background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; border-radius: 50%; cursor: pointer; z-index: 1000; }
+        .music-note { font-size: 14px; color: #666; margin-top: 10px; } /* Styling untuk pesan musik */
     </style>
 </head>
 
 <body>
-    <!-- Musik Latar -->
-    <audio id="background-music" loop preload="auto">
-        <source src="assets/song.mp3" type="audio/mp3">
-        Browser Anda tidak mendukung elemen audio.
-    </audio>
-
-    <button id="music-toggle-btn" class="music-toggle-btn" aria-label="Toggle music">
+    <button id="music-toggle-btn" class="music-toggle-btn" aria-label="Toggle music" style="display: none;">
         <i class="fas fa-volume-up"></i>
     </button>
 
-    <!-- Halaman Cover -->
     <div class="cover">
         <div class="decorative-border-top"></div>
         <div class="decorative-border-bottom"></div>
@@ -59,36 +49,26 @@
         </p>
         
         <button class="open-btn" onclick="bukaUndangan()" aria-label="Buka undangan">Buka Undangan Romantis</button>
+        <p class="music-note">Klik tombol di atas untuk memulai musik dan membuka undangan.</p>
     </div>
 
-    <!-- JavaScript Inline -->
     <script>
         // Isi nama tamu dari URL parameter
         const urlParams = new URLSearchParams(window.location.search);
         const guestName = urlParams.get('nama') || 'Tamu Undangan';
         document.getElementById('guest-name').textContent = `Kepada ${guestName}`;
 
-        // Fungsi buka undangan (redirect ke main.html)
+        // Fungsi buka undangan (redirect ke main.html dan SET SESSION STORAGE)
         function bukaUndangan() {
-            // Tambahkan parameter nama ke URL main.html jika ada
+            // 1. Set status di sessionStorage agar musik diputar di main.html
+            sessionStorage.setItem('playMusicOnLoad', 'true');
+            
+            // 2. Redirect ke main.html dengan parameter nama
             const namaParam = urlParams.get('nama') ? `?nama=${encodeURIComponent(urlParams.get('nama'))}` : '';
             window.location.href = `main.html${namaParam}`;
         }
-
-        // Toggle Musik
-        const music = document.getElementById('background-music');
-        const toggleBtn = document.getElementById('music-toggle-btn');
-        const icon = toggleBtn.querySelector('i');
-
-        toggleBtn.addEventListener('click', () => {
-            if (music.paused) {
-                music.play();
-                icon.className = 'fas fa-volume-up';
-            } else {
-                music.pause();
-                icon.className = 'fas fa-volume-mute';
-            }
-        });
+        
+        // Menghapus logika Toggle Musik karena musik dimulai di main.html
     </script>
 </body>
 </html>
