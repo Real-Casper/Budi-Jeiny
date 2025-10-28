@@ -1,6 +1,8 @@
-/* 1. Variabel Warna & Animasi */
+ 
 
-:root {
+
+
+/* 1. Variabel Warna & Animasi */:root {
 
   --color-primary: #d4a7b7; /* Dusty Pink */
 
@@ -22,11 +24,7 @@
 
   --animation-duration: 1.5s;
 
-}
-
-
-
-.ring-icon {
+}.ring-icon {
 
   width: 80px;
 
@@ -42,35 +40,19 @@
 
   animation-delay: 0.5s;
 
-}
-
-
-
-/* Keyframes untuk Animasi Fade-In */
-
-@keyframes fadeIn {
+}/* Keyframes */@keyframes fadeIn {
 
     from { opacity: 0; transform: translateY(15px); }
 
     to { opacity: 1; transform: translateY(0); }
 
-}
-
-
-
-/* KEYFRAMES UNTUK TEKS BERJALAN */
-
-@keyframes scrollText {
+}@keyframes scrollText {
 
     0% { transform: translateX(100%); }
 
     100% { transform: translateX(-100%); }
 
-}
-
-
-
-/* Reset Dasar dan FIX UNTUK NO SCROLL */
+}/* Reset Dasar */
 
 * {
 
@@ -80,25 +62,13 @@
 
   box-sizing: border-box;
 
-}
+}/* 🔒 FIX: Mencegah scrolling pada halaman COVER (index.html) */html, body {
 
+    overflow: hidden; /* Menonaktifkan scroll secara default */
 
+    height: 100%; 
 
-/* FIX UTAMA: Mencegah scrolling pada halaman */
-
-html, body {
-
-    overflow: hidden; /* Menonaktifkan scroll */
-
-    height: 100%; /* Memastikan elemen mengambil 100% tinggi viewport */
-
-}
-
-
-
-/* 2. Latar Belakang dengan FIX Alignment dan Background Image */
-
-body {
+}/* 2. Latar Belakang dan Layout Body (Default: untuk index.html) */body {
 
   font-family: var(--font-body);
 
@@ -106,13 +76,13 @@ body {
 
   min-height: 100vh;
 
+  
+
+  /* Mengatur tata letak agar kartu Cover di tengah */
+
   display: flex;
 
   justify-content: center;
-
-  
-
-  /* FIX 2: Tengahkan Kartu Vertikal agar pas di tengah layar statis */
 
   align-items: center; 
 
@@ -126,7 +96,7 @@ body {
 
   
 
-  /* Perbaikan properti background-image */
+  /* Properti Background */
 
   background-image: url('assets/Bg_Depan.png'); 
 
@@ -136,41 +106,23 @@ body {
 
   background-repeat: no-repeat;
 
-  background-attachment: fixed; 
+  background-attachment: fixed; /* Background statis di cover */
 
   background-color: #fcebeb; 
 
-}
-
-
-
-/* 3. Kartu Undangan (Cover) dengan FIX HEIGHT */
-
-.cover {
+}/* 3. Kartu Undangan (Cover) */.cover {
 
   max-width: 400px; 
 
   width: 90%; 
 
-  
-
-  /* FIX 3: Gunakan max-height untuk memastikan kartu tidak melebihi layar */
-
   max-height: 95vh; 
 
-  /* Jika konten melebihi max-height, scroll hanya terjadi di dalam kartu */
-
   overflow-y: auto; 
-
-  
-
-  /* Hapus margin-top/bottom karena align-items: center di body sudah menengahkan */
 
   margin: auto; 
 
   
-
-  /* Padding disesuaikan agar konten ringkas di HP */
 
   padding: 30px 25px; 
 
@@ -180,7 +132,7 @@ body {
 
   position: relative; 
 
-  overflow-x: hidden; /* Hanya Y yang diizinkan auto */
+  overflow-x: hidden; 
 
   border: 3px solid var(--color-primary); 
 
@@ -190,13 +142,7 @@ body {
 
   animation-delay: 0.2s;
 
-}
-
-
-
-/* --- OVERLAY KARTU --- */
-
-.cover::before {
+}/* --- OVERLAY KARTU & DECORATIVE ELEMENTS --- */.cover::before { 
 
   content: '';
 
@@ -214,13 +160,7 @@ body {
 
   z-index: -1; 
 
-}
-
-
-
-/* Elemen Dekoratif dari assets (tetap sama) */
-
-.decorative-border-top, .decorative-border-bottom {
+}.decorative-border-top, .decorative-border-bottom {
 
   position: absolute;
 
@@ -240,11 +180,7 @@ body {
 
   z-index: 1; 
 
-}
-
-
-
-.decorative-border-top {
+}.decorative-border-top {
 
   top: 0;
 
@@ -252,11 +188,7 @@ body {
 
   background-position: center top;
 
-}
-
-
-
-.decorative-border-bottom {
+}.decorative-border-bottom {
 
   bottom: 0;
 
@@ -264,13 +196,7 @@ body {
 
   background-position: center bottom;
 
-}
-
-
-
-/* GAYA KHUSUS UNTUK NAMA TAMU (#guest-name) */
-
-#guest-name {
+}/* GAYA KHUSUS TEKS COVER */#guest-name {
 
     font-family: var(--font-body);
 
@@ -286,11 +212,7 @@ body {
 
     opacity: 0.8;
 
-}
-
-
-
-#guest-name strong {
+}#guest-name strong {
 
     font-weight: 700;
 
@@ -300,13 +222,7 @@ body {
 
     display: block; 
 
-}
-
-
-
-/* Teks Utama Cover (tetap sama) */
-
-.cover h1 {
+}.cover h1 {
 
   font-size: 0.95rem;
 
@@ -326,11 +242,7 @@ body {
 
   animation-delay: 0.8s;
 
-}
-
-
-
-.cover .names {
+}.cover .names {
 
   font-family: var(--font-heading);
 
@@ -344,11 +256,7 @@ body {
 
   opacity: 0;
 
-}
-
-
-
-.connector, .date-text {
+}.connector, .date-text {
 
     color: var(--color-text);
 
@@ -356,13 +264,19 @@ body {
 
     animation: fadeIn 0.8s ease-out forwards;
 
-}
+}.invitation-closer {
 
+    font-size: 0.9rem;
 
+    font-weight: 600;
 
-/* 4. Tombol dengan Efek Hover Animasi */
+    margin-bottom: 25px; 
 
-.open-btn {
+    color: var(--color-text); 
+
+    opacity: 0; 
+
+}/* 4. Tombol Cover */.open-btn {
 
   background: var(--color-primary); 
 
@@ -398,13 +312,9 @@ body {
 
   animation-delay: 1.6s;
 
-  margin-bottom: 5px; /* Tambahkan sedikit margin-bottom agar tombol tidak mepet */
+  margin-bottom: 5px; 
 
-}
-
-
-
-.open-btn:hover {
+}.open-btn:hover {
 
   background: #b88f9f; 
 
@@ -412,30 +322,558 @@ body {
 
   box-shadow: 0 10px 20px rgba(212, 167, 183, 0.8);
 
-}
+}/* ================================================= *//* ✅ KONDISI: main.html BISA DI-SCROLL *//* ================================================= */.main-page {
+
+    /* MENGAKTIFKAN SCROLL di main.html */
+
+    overflow: auto !important; 
+
+    height: auto !important; 
+
+    min-height: 100vh; 
+
+    
+
+    /* Mengubah tata letak menjadi konten vertikal biasa */
+
+    display: block !important; 
+
+    align-items: flex-start !important; 
+
+    
+
+    /* Background mengikuti scroll di halaman utama */
+
+    background-attachment: scroll !important; 
+
+    
+
+    /* Tambahkan padding di bagian bawah untuk navigasi sticky footer */
+
+    padding-bottom: 80px; 
+
+}/* === GAYA HALAMAN UTAMA (main.html) === */.section {
+
+    padding: 40px 15px;
+
+    width: 100%;
+
+    text-align: center;
+
+}.main-header {
+
+    padding-top: 80px;
+
+    background-color: var(--color-secondary); 
+
+}.greeting {
+
+    font-size: 0.9rem;
+
+    color: var(--color-text);
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 5px;
+
+}.main-names {
+
+    font-family: var(--font-heading);
+
+    font-size: 4rem;
+
+    color: var(--color-primary);
+
+    margin-bottom: 10px;
+
+}.date-big {
+
+    font-size: 1.1rem;
+
+    font-weight: 700;
+
+    color: var(--color-text);
+
+    margin-bottom: 25px;
+
+}.intro-text {
+
+    font-size: 0.9rem;
+
+    color: var(--color-text);
+
+    opacity: 0.8;
+
+    max-width: 400px;
+
+    margin: 0 auto;
+
+}/* Tombol Musik (Sticky) */.music-toggle-btn {
+
+    position: fixed;
+
+    top: 20px;
+
+    right: 20px;
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    background-color: var(--color-primary);
+
+    color: #fff;
+
+    border: 2px solid #fff;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    cursor: pointer;
+
+    z-index: 1001; 
+
+    transition: all 0.3s;
+
+}.music-toggle-btn:hover { background-color: #b88f9f; }.music-toggle-btn i { font-size: 1.1rem; }/* COUNTDOWN TIMER */.countdown-section {
+
+    background-color: #fcebeb; 
+
+    padding: 30px 15px;
+
+}.countdown-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+}.time-box {
+
+    background-color: var(--color-primary);
+
+    color: #fff;
+
+    padding: 10px 5px;
+
+    border-radius: 8px;
+
+    width: 70px; 
+
+    text-align: center;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+}.time-box .number {
+
+    display: block;
+
+    font-size: 1.8rem;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+}.time-box .label {
+
+    display: block;
+
+    font-size: 0.7rem;
+
+    text-transform: uppercase;
+
+    font-weight: 600;
+
+}.expired { font-size: 1.2rem; font-weight: 600; color: var(--color-primary); }/* DETAIL ACARA */.section-title {
+
+    font-family: var(--font-heading);
+
+    font-size: 2rem;
+
+    color: var(--color-primary);
+
+    margin-bottom: 30px;
+
+    padding-top: 15px;
+
+}.card {
+
+    background-color: #fff;
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    margin: 20px auto;
+
+    max-width: 350px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+}.event-card h3 {
+
+    color: var(--color-primary);
+
+    margin-bottom: 15px;
+
+    font-size: 1.5rem;
+
+    font-family: var(--font-heading);
+
+}.event-time, .event-location {
+
+    font-size: 0.9rem;
+
+    color: var(--color-text);
+
+    margin-bottom: 10px;
+
+}.event-time i, .event-location i {
+
+    color: var(--color-primary);
+
+    margin-right: 8px;
+
+}.map-btn {
+
+    display: block;
+
+    margin-top: 20px;
+
+    background: var(--color-primary);
+
+    color: #fff;
+
+    padding: 10px 20px;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    font-size: 0.9rem;
+
+    transition: background 0.3s;
+
+}.map-btn:hover { background: #b88f9f; }/* 🗺️ Google Maps Location Styling */.map-section {
+
+    padding: 20px 0; 
+
+}.map-container {
+
+    max-width: 600px;
+
+    margin: 20px auto 0;
+
+    height: 300px; 
+
+    border-radius: 15px;
+
+    overflow: hidden; 
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+}.map-container iframe {
+
+    width: 100%;
+
+    height: 100%;
+
+    border: 0;
+
+}/* QUOTES */.quote-section {
+
+    background-color: var(--color-primary);
+
+    color: #fff;
+
+    padding: 50px 20px;
+
+}.quote-text {
+
+    font-style: italic;
+
+    font-size: 1rem;
+
+    line-height: 1.6;
+
+    margin-bottom: 15px;
+
+}.quote-source {
+
+    font-weight: 700;
+
+    font-size: 0.8rem;
+
+    opacity: 0.8;
+
+}/* 📸 GALLERY */.gallery-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    max-width: 400px;
+
+    margin: 20px auto;
+
+}.gallery-img {
+
+    width: 100%;
+
+    height: auto;
+
+    border-radius: 10px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+    cursor: zoom-in; /* Tambahan agar terasa interaktif */
+
+    transition: transform 0.2s;
+
+}.gallery-img:hover {
+
+    transform: scale(1.02);
+
+}/* 💬 RSVP Form Styling */.rsvp-section {
+
+    background-color: var(--color-secondary);
+
+}.rsvp-form {
+
+    max-width: 400px;
+
+    margin: 20px auto;
+
+    padding: 20px;
+
+    background-color: #fff;
+
+    border-radius: 15px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+    text-align: left;
+
+}.form-group {
+
+    margin-bottom: 15px;
+
+}.form-group label {
+
+    display: block;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    margin-bottom: 5px;
+
+    color: var(--color-text);
+
+}.form-group input[type="text"], .form-group select,.form-group textarea {
+
+    width: 100%;
+
+    padding: 10px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    font-size: 1rem;
+
+    color: var(--color-text);
+
+}.form-group textarea {
+
+    min-height: 100px;
+
+    resize: vertical;
+
+}.rsvp-submit-btn {
+
+    width: 100%;
+
+    background: var(--color-primary); 
+
+    color: #ffffff;
+
+    border: none;
+
+    padding: 12px;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: background 0.3s;
+
+    margin-top: 10px;
+
+}.rsvp-submit-btn:hover {
+
+    background: #b88f9f;
+
+}/* 📖 Buku Tamu Digital Styling (Mirip RSVP, hanya beda nama kelas) */.guestbook-section {
+
+    background-color: #fcebeb;
+
+}.guestbook-form {
+
+    max-width: 400px;
+
+    margin: 20px auto;
+
+    padding: 20px;
+
+    background-color: #fff;
+
+    border-radius: 15px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+    text-align: left;
+
+}.guestbook-message-text {
+
+    font-size: 0.9rem;
+
+    color: var(--color-text);
+
+    opacity: 0.8;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+
+}/* FOOTER & NAVIGASI BAWAH */.main-footer {
+
+    padding-top: 40px;
+
+    background-color: var(--color-secondary);
+
+}.closing-text {
+
+    font-size: 0.9rem;
+
+    color: var(--color-text);
+
+    opacity: 0.8;
+
+    margin-bottom: 25px;
+
+}.salam {
+
+    font-family: var(--font-heading);
+
+    font-size: 1.5rem;
+
+    line-height: 1.5;
+
+    color: var(--color-primary);
+
+}.nav-bottom {
+
+    position: fixed;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    background-color: #fff;
+
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+
+    z-index: 1000;
+
+    padding: 8px 0;
+
+}.nav-item {
+
+    text-decoration: none;
+
+    color: var(--color-text);
+
+    font-size: 0.75rem;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 5px;
+
+    transition: color 0.2s;
+
+}.nav-item i {
+
+    font-size: 1.2rem;
+
+    margin-bottom: 3px;
+
+    color: var(--color-primary);
+
+}.nav-item:hover {
+
+    color: var(--color-primary);
+
+}/* 5. Media Queries */@media (min-width: 550px) {
+
+    /* Cover Page Adjustments */
+
+    .cover { 
+
+        max-width: 550px; 
+
+        padding: 80px 40px; 
+
+    }
+
+    .cover h1 { margin-top: 5px; }
+
+    .cover .names { font-size: 4.5rem; }
+
+    #guest-name { margin: 10px 0 15px; }
 
 
 
-/* 5. Media Queries */
+    /* Main Page Adjustments */
 
-@media (min-width: 550px) {
+    .main-header { padding-top: 100px; }
 
-  .cover { 
+    .main-names { font-size: 5.5rem; }
 
-    max-width: 550px; 
+    .gallery-grid { grid-template-columns: 1fr 1fr 1fr; max-width: 700px; }
 
-    padding: 80px 40px; 
+    .map-container { height: 400px; }
 
-    /* Hapus margin-top/bottom di sini juga */
+    
 
-  }
+    .time-box { width: 90px; padding: 15px 10px; }
 
-  .cover h1 { margin-top: 5px; }
+    .time-box .number { font-size: 2.5rem; }
 
-  .running-text-container { top: 60px; }
-
-  .cover .names { font-size: 4.5rem; }
-
-  #guest-name { margin: 10px 0 15px; }
+    .time-box .label { font-size: 0.8rem; }
 
 }

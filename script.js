@@ -1,3 +1,11 @@
+// ===================================
+
+// === FUNGSI COVER (index.html) ===
+
+// ===================================
+
+
+
 // Fungsi Utama untuk Mengambil Nama Tamu dari URL
 
 function getGuestName() {
@@ -38,17 +46,21 @@ function getGuestName() {
 
 
 
-// Fungsi untuk menangani aksi tombol Buka Undangan (dapat dipanggil dari HTML)
+// FUNGSI INTI: Pindah Halaman & Memutar Musik Otomatis
 
 function bukaUndangan() {
+
+    // 1. Alert (Opsional)
 
     const guestName = getGuestName();
 
     alert("Selamat Datang, " + guestName + "! Undangan akan terbuka...");
 
-    // Tambahkan navigasi ke halaman utama di sini:
+    
 
-    // window.location.href = "halaman-utama.html"; 
+    // 2. NAVIGASI ke main.html
+
+    window.location.href = "main.html"; 
 
 }
 
@@ -66,15 +78,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    if (guestElement) {
+    // Cek apakah ini halaman Cover (index.html)
+
+    if (guestElement && document.querySelector('.cover')) {
 
         
 
-        // 1. SISIPKAN GAMBAR CINCIN DENGAN PENUNDAAN (delay)
+        // LOGIKA COVER
+
+        
+
+        // 1. SISIPKAN GAMBAR CINCIN
 
         const ringImg = document.createElement('img');
 
-        ringImg.src = 'assets/cincin.png'; // Pastikan path benar
+        ringImg.src = 'assets/cincin.png'; 
 
         ringImg.alt = 'Cincin Pernikahan';
 
@@ -82,37 +100,153 @@ document.addEventListener('DOMContentLoaded', () => {
 
         
 
-        // Tambahkan elemen cincin sebelum elemen nama tamu
-
         guestElement.parentNode.insertBefore(ringImg, guestElement);
 
         
 
-        // Cincin sudah diberi style 'opacity: 0;' dan animasi di CSS.
-
-        // Kita hanya perlu memastikan CSS sudah memiliki:
-
-        // .ring-icon { opacity: 0; animation: fadeIn 0.8s ease-out forwards; animation-delay: 0.5s; }
-
-        
-
-        
-
-        // 2. TAMPILKAN NAMA TAMU DENGAN PENUNDAAN BERURUTAN
+        // 2. TAMPILKAN NAMA TAMU
 
         guestElement.innerHTML = `Kepada Yth. Bapak/Ibu/Sdr/i: <br><strong>${guestName}</strong>`;
 
         
 
-        // Nama tamu muncul SETELAH cincin. Jika cincin delay 0.5s, 
-
-        // kita bisa atur nama tamu muncul sekitar 0.8s untuk urutan yang rapi.
-
         guestElement.style.opacity = 0;
 
         guestElement.style.animation = 'fadeIn 0.8s ease-out forwards';
 
-        guestElement.style.animationDelay = '0.8s'; // Disesuaikan agar muncul setelah cincin
+        guestElement.style.animationDelay = '0.8s'; 
+
+        
+
+    } else if (document.body.classList.contains('main-page')) {
+
+        
+
+        // ========================================
+
+        // === LOGIKA HALAMAN UTAMA (main.html) ===
+
+        // ========================================
+
+        
+
+        // 1. INISIASI MUSIK
+
+        const music = document.getElementById('background-music');
+
+        const musicBtn = document.getElementById('music-toggle-btn');
+
+        let isPlaying = false;
+
+
+
+        // Coba putar musik secara otomatis (karena user sudah berinteraksi di halaman cover)
+
+        const playPromise = music.play();
+
+
+
+        if (playPromise !== undefined) {
+
+            playPromise.then(() => {
+
+                isPlaying = true;
+
+                musicBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+
+            }).catch(error => {
+
+                // Autoplay dicekal oleh browser
+
+                isPlaying = false;
+
+                musicBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+
+            });
+
+        }
+
+
+
+        // Event listener untuk tombol play/pause
+
+        musicBtn.addEventListener('click', () => {
+
+            if (isPlaying) {
+
+                music.pause();
+
+                musicBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+
+            } else {
+
+                music.play();
+
+                musicBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+
+            }
+
+            isPlaying = !isPlaying;
+
+        });
+
+        
+
+        
+
+        // 2. INISIASI COUNTDOWN TIMER
+
+        
+
+        // TANGGAL PERNIKAHAN: TAHUN, BULAN (0=Jan), TANGGAL, JAM, MENIT, DETIK
+
+        const weddingDate = new Date("Feb 14, 2026 09:00:00").getTime();
+
+        const countdownElement = document.getElementById('countdown-timer');
+
+
+
+        const updateCountdown = setInterval(() => {
+
+            const now = new Date().getTime();
+
+            const distance = weddingDate - now;
+
+
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+
+            if (distance < 0) {
+
+                clearInterval(updateCountdown);
+
+                countdownElement.innerHTML = "<div class='expired'>Alhamdulillah, kami telah Sah!</div>";
+
+            } else {
+
+                countdownElement.innerHTML = `
+
+                    <div class="time-box"><span class="number">${days}</span><span class="label">Hari</span></div>
+
+                    <div class="time-box"><span class="number">${hours}</span><span class="label">Jam</span></div>
+
+                    <div class="time-box"><span class="number">${minutes}</span><span class="label">Menit</span></div>
+
+                    <div class="time-box"><span class="number">${seconds}</span><span class="label">Detik</span></div>
+
+                `;  
+
+            }
+
+        }, 1000);
 
     }
 
