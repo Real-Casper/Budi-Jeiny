@@ -1,74 +1,61 @@
-<!DOCTYPE html> 
-<html lang="id">
+<!DOCTYPE html> <!-- Menentukan tipe dokumen HTML5 -->
+
+<html lang="id"> <!-- Bahasa halaman adalah Bahasa Indonesia -->
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Undangan Pernikahan Animasi Modern - Bunga & Ananda</title>
-    
+    <!-- Informasi meta (tidak ditampilkan) -->
+    <meta charset="UTF-8" /> <!-- Mendukung semua karakter termasuk emoji -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- Responsive di HP -->
+
+    <title>Undangan Pernikahan Animasi Modern - Budi & Jeiny</title> <!-- Judul tab browser -->
+
+    <!-- Import Font dari Google -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
+    <!-- Import file CSS utama untuk styling -->
     <link rel="stylesheet" href="style.css">
+
     
-    <style>
-        .cover { text-align: center; padding: 50px; position: relative; }
-        .decorative-border-top, .decorative-border-bottom { /* Tambahkan styling border jika diperlukan, misalnya garis emas */ }
-        .names, .connector, .date-text, .invitation-closer { opacity: 0; animation: fadeIn 1s ease-out forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .open-btn { padding: 15px 30px; background: #d4af37; color: white; border: none; cursor: pointer; font-size: 18px; border-radius: 5px; transition: background 0.3s; }
-        .open-btn:hover { background: #b8860b; }
-        .music-toggle-btn { position: fixed; top: 20px; right: 20px; background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; border-radius: 50%; cursor: pointer; z-index: 1000; }
-        .music-note { font-size: 14px; color: #666; margin-top: 10px; } /* Styling untuk pesan musik */
-    </style>
 </head>
 
 <body>
-    <button id="music-toggle-btn" class="music-toggle-btn" aria-label="Toggle music" style="display: none;">
-        <i class="fas fa-volume-up"></i>
-    </button>
 
+    <!-- Bagian Cover / Halaman Pembuka -->
     <div class="cover">
+
+        <!-- Dekorasi bagian atas & bawah cover -->
         <div class="decorative-border-top"></div>
         <div class="decorative-border-bottom"></div>
 
-        <h2 id="guest-name"></h2>
+        <!-- Nama tamu yang otomatis akan tampil dari link -->
+        <h2 id="guest-name" style="margin-bottom:18px;"></h2>
 
+        <!-- Judul utama -->
         <h1>Undangan Pernikahan</h1>
-        
-        <p class="names" style="animation-delay: 1.1s;">Bunga</p>
+
+        <!-- Nama kedua pengantin -->
+        <p class="names" style="animation-delay: 1.1s;">Budi</p>
         <span class="connector" style="animation-delay: 1.2s;">&</span>
-        <p class="names" style="animation-delay: 1.1s;">Ananda</p>
-        
-        <p class="date-text" style="animation-delay: 1.4s;">
+        <p class="names" style="animation-delay: 1.1s;">Jeiny</p>
+
+        <!-- Kalimat ajakan -->
+        <p class="date-text" style="animation-delay: 1.4s;" >
             Dengan segala kerendahan hati, kami mengundang Anda untuk hadir pada hari bahagia kami.
         </p>
-        
-        <p class="invitation-closer" style="animation: fadeIn 0.8s ease-out forwards; animation-delay: 1.5s;">
+
+        <!-- Penutup pada cover -->
+        <p class="invitation-closer" style="animation: fadeIn 0.8s ease-out forwards;  animation-delay: 1.5s;">
             Kami tunggu kehadiran Anda!
         </p>
-        
-        <button class="open-btn" onclick="bukaUndangan()" aria-label="Buka undangan">Buka Undangan Romantis</button>
-        <p class="music-note">Klik tombol di atas untuk memulai musik dan membuka undangan.</p>
+
+        <!-- Tombol untuk membuka halaman utama undangan -->
+        <button class="open-btn" onclick="bukaUndangan()">Buka Undangan</button>
     </div>
 
-    <script>
-        // Isi nama tamu dari URL parameter
-        const urlParams = new URLSearchParams(window.location.search);
-        const guestName = urlParams.get('nama') || 'Tamu Undangan';
-        document.getElementById('guest-name').textContent = `Kepada ${guestName}`;
-
-        // Fungsi buka undangan (redirect ke main.html dan SET SESSION STORAGE)
-        function bukaUndangan() {
-            // 1. Set status di sessionStorage agar musik diputar di main.html
-            sessionStorage.setItem('playMusicOnLoad', 'true');
-            
-            // 2. Redirect ke main.html dengan parameter nama
-            const namaParam = urlParams.get('nama') ? `?nama=${encodeURIComponent(urlParams.get('nama'))}` : '';
-            window.location.href = `main.html${namaParam}`;
-        }
-        
-        // Menghapus logika Toggle Musik karena musik dimulai di main.html
-    </script>
+    <!-- Menghubungkan file JavaScript -->
+    <script src="script.js"></script>
 </body>
+
+
+
 </html>

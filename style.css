@@ -2,7 +2,8 @@
 
 
 
-/* 1. Variabel Warna & Animasi */:root {
+/* 1. Variabel Warna & Animasi */
+:root {
 
   --color-primary: #d4a7b7; /* Dusty Pink */
 
@@ -23,8 +24,37 @@
   
 
   --animation-duration: 1.5s;
+}
 
-}.ring-icon {
+
+
+/* ✅ Animasi Warna Nama Pengantin */
+ 
+.cover .names {
+    animation: fadeIn 0.8s ease-out forwards,
+               colorChange 3s infinite alternate ease-in-out;
+    opacity: 0;
+}
+
+/* Hilangkan warna default agar animasi yang atur */
+.cover .names { color: inherit; }
+
+/* ✅ Keyframes animasi berubah warna */
+@keyframes colorChange {
+    0%   { color: #d4a7b7; }
+    50%  { color: #6a4c6a; }
+    100% { color: #ffffff; }
+}
+
+/* Agar simbol & ikut animasi */
+.cover .names {
+    font-family: var(--font-heading);
+    font-weight: bold;
+}
+
+  
+
+.ring-icon {
 
   width: 80px;
 
@@ -109,6 +139,8 @@
   background-attachment: fixed; /* Background statis di cover */
 
   background-color: #fcebeb; 
+
+  
 
 }/* 3. Kartu Undangan (Cover) */.cover {
 
@@ -203,6 +235,7 @@
     font-size: 1.0rem; 
 
     font-weight: 400;
+    
 
     line-height: 1.4;
 
@@ -215,6 +248,7 @@
 }#guest-name strong {
 
     font-weight: 700;
+   
 
     color: var(--color-primary);
 
@@ -241,6 +275,8 @@
   opacity: 0;
 
   animation-delay: 0.8s;
+
+  
 
 }.cover .names {
 
@@ -732,6 +768,9 @@
 
     background-color: #fcebeb;
 
+
+    
+
 }.guestbook-form {
 
     max-width: 400px;
@@ -876,4 +915,7 @@
 
     .time-box .label { font-size: 0.8rem; }
 
+    
+
 }
+

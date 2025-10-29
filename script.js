@@ -45,23 +45,20 @@ function getGuestName() {
 }
 
 
-
-// FUNGSI INTI: Pindah Halaman & Memutar Musik Otomatis
+// script.js
 
 function bukaUndangan() {
+    // 1. Simpan penanda di sessionStorage
+    // Ini memberi tahu halaman 'main.html' bahwa musik harus diputar
+    sessionStorage.setItem('playMusicOnLoad', 'true');
 
-    // 1. Alert (Opsional)
-
-    const guestName = getGuestName();
-
-    alert("Selamat Datang, " + guestName + "! Undangan akan terbuka...");
-
+    // 2. Tambahkan nama tamu ke URL (Opsional, tapi praktik baik)
+    // Asumsi: Jika Anda ingin nama tamu dipertahankan, Anda bisa mengambilnya dari URL
+    // Namun, karena kode Anda tidak menunjukkan cara mengambil nama tamu, kita abaikan dulu.
     
-
-    // 2. NAVIGASI ke main.html
-
-    window.location.href = "main.html"; 
-
+    // 3. Arahkan ke halaman utama
+    // Ganti 'main.html' jika nama file Anda berbeda.
+    window.location.href = 'main.html';
 }
 
 

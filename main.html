@@ -1,223 +1,252 @@
-<!DOCTYPE html> 
-<html lang="id">
+<!DOCTYPE html> <!-- Mendefinisikan tipe dokumen HTML5 -->
+
+<html lang="id"> <!-- Menentukan bahasa halaman adalah Bahasa Indonesia -->
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Undangan Pernikahan - Bunga & Ananda</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" /> <!-- Mengatur encoding teks agar mendukung karakter internasional -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- Agar tampilan responsif di semua perangkat -->
+  <title>Budi & Jeiny - Undangan Pernikahan</title> <!-- Judul halaman di tab browser -->
+
+  <!-- Import font dari Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Import icon Font Awesome untuk ikon-ikon seperti jam, lokasi, dsb -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Memanggil file CSS eksternal untuk styling -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="main-page">
-    <audio id="background-music" loop preload="auto">
-        <source src="assets/song.mp3" type="audio/mp3">
-        Browser Anda tidak mendukung elemen audio.
-    </audio>
+<body class="main-page"> <!-- Kelas untuk styling halaman utama -->
 
-    <button id="music-toggle-btn" class="music-toggle-btn" aria-label="Toggle music">
-        <i class="fas fa-volume-up"></i>
-    </button>
+  <!-- Pemutar musik background, loop = berulang, preload otomatis -->
+  <audio id="background-music" loop preload="auto">
+    <source src="assets/song.mp3" type="audio/mp3">
+    Browser Anda tidak mendukung elemen audio.
+  </audio>
 
-    <header class="main-header section" id="home">
-        <div class="ring-wrapper">
-            <img src="assets/cincin.jpg" alt="Cincin Pernikahan Bunga dan Ananda" class="header-ring" />
-        </div>
+  <!-- Tombol untuk menyalakan/mematikan musik -->
+  <button id="music-toggle-btn" class="music-toggle-btn" aria-label="Toggle music">
+    <i class="fas fa-volume-up"></i> <!-- Ikon suara -->
+  </button>
 
-        <p class="greeting">Kepada Yth. Bapak/Ibu/Sdr/i:</p>
-        <h1 class="main-names">Bunga & Ananda</h1>
-        <p class="date-big">Sabtu, 14 Februari 2026</p>
-        <p class="intro-text">
-            Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.
-        </p>
-    </header>
+  <!-- Bagian Header / Halaman Utama -->
+  <header class="main-header section" id="home">
+    <div class="ring-wrapper"> <!-- Container dekorasi animasi cincin -->
+      <div alt="Cincin Pernikahan Budi dan Jeiny" class="header-ring"></div>
+    </div>
 
-    <section class="countdown-section section">
-        <h2 class="section-title">Menghitung Hari Bahagia</h2>
-        <div id="countdown-timer" class="countdown-container"></div>
-    </section>
+    <!-- Teks sambutan -->
+    <p class="greeting">Kepada Yth. Bapak/Ibu/Sdr/i:</p>
+    <h1 class="main-names">Budi & Jeiny</h1>
+    <p class="date-big">Sabtu, 14 Februari 2026</p>
+    <p class="intro-text">
+      Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.
+    </p>
+  </header>
 
-    <section class="event-details section" id="event">
-        <h2 class="section-title">Detail Acara</h2>
+  <!-- Bagian hitung mundur ke hari acara -->
+  <section class="countdown-section section">
+    <h2 class="section-title">Menghitung Hari Bahagia</h2>
+    <div id="countdown-timer" class="countdown-container"></div> <!-- Tempat tampil countdown -->
+  </section>
 
-        <div class="card event-card">
-            <h3>Akad Nikah</h3>
-            <p class="event-time"><i class="far fa-clock"></i> 09:00 WIB</p>
-            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Gedung Serbaguna Puri Indah</p>
-        </div>
+  <!-- Bagian detail acara akad & resepsi -->
+  <section class="event-details section" id="event">
+    <h2 class="section-title">Detail Acara</h2>
 
-        <div class="card event-card">
-            <h3>Resepsi</h3>
-            <p class="event-time"><i class="far fa-clock"></i> 11:00 - 17:00 WIB</p>
-            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Gedung Serbaguna Puri Indah</p>
-            <a href="#location" class="btn-primary map-btn">Lihat Peta Lokasi</a>
-        </div>
-    </section>
+    <!-- Kartu info akad -->
+    <div class="card event-card">
+      <h3>Akad Nikah</h3>
+      <p class="event-time"><i class="far fa-clock"></i> 09:00 WIB</p> <!-- Ikon jam -->
+      <p class="event-location"><i class="fas fa-map-marker-alt"></i> Gedung Serbaguna Puri Indah</p> <!-- Ikon lokasi -->
+    </div>
 
-    <section class="map-section section" id="location">
-        <h2 class="section-title">Peta Lokasi</h2>
-        <p class="intro-text">Lokasi acara kami akan diadakan di Gedung Serbaguna Puri Indah.</p>
+    <!-- Kartu info resepsi + tombol peta -->
+    <div class="card event-card">
+      <h3>Resepsi</h3>
+      <p class="event-time"><i class="far fa-clock"></i> 11:00 - 17:00 WIB</p>
+      <p class="event-location"><i class="fas fa-map-marker-alt"></i> Gedung Serbaguna Puri Indah</p>
+      <a href="#location" class="btn-primary map-btn">Lihat Peta Lokasi</a> <!-- Scroll ke bagian peta -->
+    </div>
+  </section>
 
-        <div class="map-container">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3015490793166!2d106.84070007399589!3d-6.222300560867491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3fe2b4d8161%3A0xcb13e117e923e3e7!2sGedung%20Puri%20Indah!5e0!3m2!1sid!2sid!4v1687500000000!5m2!1sid!2sid"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
+  <!-- Bagian Google Maps lokasi acara -->
+  <section class="map-section section" id="location">
+    <h2 class="section-title">Peta Lokasi</h2>
+    <p class="intro-text">Lokasi acara kami akan diadakan di Gedung Serbaguna Puri Indah.</p>
 
-        <a href="https://maps.app.goo.gl/2wJ8Z8Z8Z8Z8Z8Z8" target="_blank" class="btn-primary map-btn" style="margin-top: 20px;">
-            Buka di Google Maps
-        </a>
-    </section>
+    <div class="map-container">
+      <!-- Embed Google Maps -->
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=..."
+        allowfullscreen=""
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
 
-    <section class="quote-section section">
-        <p class="quote-text">
-            "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan-pasangan dari jenismu sendiri,
-            supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang."
-        </p>
-        <p class="quote-source">— Q.S. Ar-Rum: 21</p>
-    </section>
+    <!-- Tombol menuju aplikasi Google Maps langsung -->
+    <a href="https://maps.app.goo.gl/2wJ8Z8Z8Z8Z8Z8Z8" target="_blank" class="btn-primary map-btn" style="margin-top: 20px;">
+      Buka di Google Maps
+    </a>
+  </section>
 
-    <section class="gallery-section section" id="gallery">
-        <h2 class="section-title">Galeri Foto Momen Kami</h2>
-        <div class="gallery-grid">
-            <img src="assets/cincin.jpg" alt="Momen spesial Bunga dan Ananda 1" class="gallery-img">
-            <img src="assets/cincin.jpg" alt="Momen spesial Bunga dan Ananda 2" class="gallery-img">
-            <img src="assets/cincin.jpg" alt="Momen spesial Bunga dan Ananda 3" class="gallery-img">
-        </div>
-    </section>
+  <!-- Bagian kutipan Al-Qur'an -->
+  <section class="quote-section section">
+    <p class="quote-text">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan ..." </p>
+    <p class="quote-source">— Q.S. Ar-Rum: 21</p>
+  </section>
 
-    <section class="rsvp-section section" id="rsvp">
-        <h2 class="section-title">Konfirmasi Kehadiran (RSVP)</h2>
-        <p class="intro-text">Mohon konfirmasi kehadiran Anda selambat-lambatnya satu minggu sebelum acara.</p>
+  <!-- Galeri Foto -->
+  <section class="gallery-section section" id="gallery">
+    <h2 class="section-title">Galeri Foto Momen Kami</h2>
+    <div class="gallery-grid">
+      <img src="assets/cincin.jpg" alt="Foto 1" class="gallery-img">
+      <img src="assets/cincin.jpg" alt="Foto 2" class="gallery-img">
+      <img src="assets/cincin.jpg" alt="Foto 3" class="gallery-img">
+    </div>
+  </section>
 
-        <form class="rsvp-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-            <div class="form-group">
-                <label for="rsvp-name">Nama Lengkap</label>
-                <input type="text" id="rsvp-name" name="Nama Tamu" required>
-            </div>
+  <!-- Form RSVP konfirmasi kehadiran -->
+  <section class="rsvp-section section" id="rsvp">
+    <h2 class="section-title">Konfirmasi Kehadiran (RSVP)</h2>
+    <p class="intro-text">Mohon konfirmasi ...</p>
 
-            <div class="form-group">
-                <label for="rsvp-status">Status Kehadiran</label>
-                <select id="rsvp-status" name="Status Kehadiran" required>
-                    <option value="">-- Pilih Status --</option>
-                    <option value="Hadir">Insya Allah Hadir</option>
-                    <option value="Tidak Hadir">Mohon Maaf Tidak Bisa Hadir</option>
-                </select>
-            </div>
+    <!-- Mengirim data form ke Formspree -->
+    <form class="rsvp-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <div class="form-group">
+        <label for="rsvp-name">Nama Lengkap</label>
+        <input type="text" id="rsvp-name" name="Nama Tamu" required>
+      </div>
 
-            <div class="form-group">
-                <label for="rsvp-jumlah">Jumlah Kehadiran (Orang)</label>
-                <input type="number" id="rsvp-jumlah" name="Jumlah Hadir" value="1" min="1" max="5" required>
-            </div>
+      <div class="form-group">
+        <label for="rsvp-status">Status Kehadiran</label>
+        <select id="rsvp-status" name="Status Kehadiran" required>
+          <option value="">-- Pilih Status --</option>
+          <option value="Hadir">Insya Allah Hadir</option>
+          <option value="Tidak Hadir">Mohon Maaf Tidak Bisa Hadir</option>
+        </select>
+      </div>
 
-            <button type="submit" class="rsvp-submit-btn">Kirim Konfirmasi</button>
-        </form>
-    </section>
+      <div class="form-group">
+        <label for="rsvp-jumlah">Jumlah Kehadiran</label>
+        <input type="number" id="rsvp-jumlah" name="Jumlah Hadir" value="1" min="1" max="5" required>
+      </div>
 
-    <section class="guestbook-section section" id="guestbook">
-        <h2 class="section-title">Doa & Ucapan</h2>
-        <p class="intro-text">Berikan doa dan ucapan terbaik untuk pernikahan kami.</p>
+      <button type="submit" class="rsvp-submit-btn">Kirim Konfirmasi</button>
+    </form>
+  </section>
 
-        <form class="guestbook-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-            <div class="form-group">
-                <label for="guest-name">Nama Anda</label>
-                <input type="text" id="guest-name" name="Nama Pengirim" required>
-            </div>
+  <!-- Buku tamu ucapan doa -->
+  <section class="guestbook-section section" id="guestbook">
+    <h2 class="section-title">Doa & Ucapan</h2>
 
-            <div class="form-group">
-                <label for="guest-message">Doa/Ucapan</label>
-                <textarea id="guest-message" name="Pesan" rows="4" placeholder="Tulis doa atau ucapan Anda di sini..." required></textarea>
-            </div>
+    <form class="guestbook-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <div class="form-group">
+        <label for="guest-name">Nama Anda</label>
+        <input type="text" id="guest-name" name="Nama Pengirim" required>
+      </div>
 
-            <button type="submit" class="rsvp-submit-btn">Kirim Doa</button>
-        </form>
-    </section>
+      <div class="form-group">
+        <label for="guest-message">Doa/Ucapan</label>
+        <textarea id="guest-message" name="Pesan" rows="4" required></textarea>
+      </div>
 
-    <footer class="main-footer section">
-        <p class="closing-text">
-            Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
-        </p>
-        <p class="salam">
-            Kami yang Berbahagia,<br>
-            <strong>Keluarga Bunga & Keluarga Ananda</strong>
-        </p>
+      <button type="submit" class="rsvp-submit-btn">Kirim Doa</button>
+    </form>
+  </section>
 
-        <div class="nav-bottom">
-            <a href="#home" class="nav-item"><i class="fas fa-home"></i> Home</a>
-            <a href="#event" class="nav-item"><i class="far fa-calendar-alt"></i> Event</a>
-            <a href="#gallery" class="nav-item"><i class="fas fa-camera"></i> Galeri</a>
-            <a href="#rsvp" class="nav-item"><i class="fas fa-comment-dots"></i> RSVP</a>
-            <a href="#guestbook" class="nav-item"><i class="fas fa-book"></i> Doa</a>
-        </div>
-    </footer>
+  <!-- Bagian footer + navigasi bawah -->
+  <footer class="main-footer section">
+    <p class="closing-text">Merupakan suatu kehormatan ...</p>
+    <p class="salam">
+      Kami yang Berbahagia,<br>
+      <strong>Keluarga Budi & Keluarga Jeiny</strong>
+    </p>
 
-    <script>
-        // Countdown Timer
-        const countdownDate = new Date('February 14, 2026 00:00:00').getTime();
-        const countdownElement = document.getElementById('countdown-timer');
+    <!-- Menu navigasi bottom sticky -->
+    <div class="nav-bottom">
+      <a href="#home" class="nav-item"><i class="fas fa-home"></i> Home</a>
+      <a href="#event" class="nav-item"><i class="far fa-calendar-alt"></i> Event</a>
+      <a href="#gallery" class="nav-item"><i class="fas fa-camera"></i> Galeri</a>
+      <a href="#rsvp" class="nav-item"><i class="fas fa-comment-dots"></i> RSVP</a>
+      <a href="#guestbook" class="nav-item"><i class="fas fa-book"></i> Doa</a>
+    </div>
+  </footer>
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = countdownDate - now;
+  <!-- Bagian JavaScript -->
+  <script>
 
-            if (distance > 0) {
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                countdownElement.innerHTML = `
-                    <div class="countdown-item"><span>${days}</span> Hari</div>
-                    <div class="countdown-item"><span>${hours}</span> Jam</div>
-                    <div class="countdown-item"><span>${minutes}</span> Menit</div>
-                    <div class="countdown-item"><span>${seconds}</span> Detik</div>
-                `;
-            } else {
-                countdownElement.innerHTML = '<p>Acara telah dimulai!</p>';
-            }
-        }
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
 
-        // Toggle Musik dan Autoplay Logic
-        const music = document.getElementById('background-music');
-        const toggleBtn = document.getElementById('music-toggle-btn');
-        const icon = toggleBtn.querySelector('i');
 
-        // Logic untuk memulai musik jika datang dari tombol "Buka Undangan"
-        document.addEventListener('DOMContentLoaded', () => {
-            if (sessionStorage.getItem('playMusicOnLoad') === 'true') {
-                music.play().catch(error => {
-                    console.log('Autoplay diblokir browser. Pengguna perlu mengklik tombol musik manual.');
-                    // Jika gagal play (diblokir), ikon tetap volume-up (asumsi play)
-                });
-                // Hapus penanda agar tidak berulang kali mencoba play saat refresh biasa
-                sessionStorage.removeItem('playMusicOnLoad');
-            }
-            // Tambahkan event listener untuk memuat nama tamu (jika ada)
-             const urlParams = new URLSearchParams(window.location.search);
-             const guestName = urlParams.get('nama') || 'Tamu Undangan';
-             // Tidak ada elemen khusus untuk nama tamu di main.html, biasanya ditaruh di sini
-             // Jika Anda ingin menampilkannya, tambahkan elemen <h2> di main-header
-        });
-        
-        // Toggle Musik
-        toggleBtn.addEventListener('click', () => {
-            if (music.paused) {
-                music.play();
-                icon.className = 'fas fa-volume-up';
-            } else {
-                music.pause();
-                icon.className = 'fas fa-volume-mute';
-            }
-        });
-    </script>
+
+    // ==========================
+    // Countdown Timer
+    // Menghitung mundur ke tanggal acara secara realtime
+    // ==========================
+    const countdownDate = new Date('February 14, 2026 00:00:00').getTime();
+    const countdownElement = document.getElementById('countdown-timer');
+
+    function updateCountdown() { // Fungsi untuk memperbarui hitungan mundur tiap detik
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownElement.innerHTML = `
+          <div class="countdown-item"><span>${days}</span> Hari</div>
+          <div class="countdown-item"><span>${hours}</span> Jam</div>
+          <div class="countdown-item"><span>${minutes}</span> Menit</div>
+          <div class="countdown-item"><span>${seconds}</span> Detik</div>
+        `;
+      } else {
+        countdownElement.innerHTML = '<p>Acara telah dimulai!</p>';
+      }
+    }
+
+    setInterval(updateCountdown, 1000); // Menjalankan update setiap 1 detik
+    updateCountdown(); // Menampilkan countdown saat halaman pertama kali load
+
+    // ==========================
+    // Toggle Musik
+    // Menyalakan / Mematikan background music
+    // ==========================
+    const music = document.getElementById('background-music');
+    const toggleBtn = document.getElementById('music-toggle-btn');
+    const icon = toggleBtn.querySelector('i');
+
+    toggleBtn.addEventListener('click', () => {
+      if (music.paused) {
+        music.play();
+        icon.className = 'fas fa-volume-up'; // Ikon sound ON
+      } else {
+        music.pause();
+        icon.className = 'fas fa-volume-mute'; // Ikon sound OFF
+      }
+    });
+
+    // ==========================
+    // Autoplay Musik bila masuk dari Cover Page
+    // Mengambil penanda dari sessionStorage
+    // ==========================
+    document.addEventListener('DOMContentLoaded', () => {
+      if (sessionStorage.getItem('playMusicOnLoad') === 'true') {
+        music.play().catch(error => {});
+        sessionStorage.removeItem('playMusicOnLoad'); // Reset agar tidak auto play saat refresh biasa
+      }
+    });
+
+    
+
+  </script>
+
+  
 </body>
 </html>
