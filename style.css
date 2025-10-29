@@ -9,9 +9,9 @@
 
   --color-secondary: #fdfaf7; /* Krem Sangat Muda (Kartu) */
 
-  --color-text: #6a4c6a; /* Ungu Gelap Lembut */
+  --color-text: #916b91; /* Ungu Gelap Lembut */
 
-  --color-overlay: rgba(253, 250, 247, 0.95); /* Overlay lebih solid */
+  --color-overlay: rgba(253, 250, 247, 0.776); /* Overlay lebih solid */
 
   
 
@@ -25,6 +25,8 @@
 
   --animation-duration: 1.5s;
 }
+
+
 
 
 
@@ -228,6 +230,21 @@
 
   background-position: center bottom;
 
+
+}.cover .names {
+
+  font-family: var(--font-heading);
+
+  font-size: var(--size-names-mobile); 
+
+  margin: 15px 0 8px;
+
+  color: #a78ca2; 
+
+  animation: fadeIn 0.8s ease-out forwards;
+
+  opacity: 0;
+
 }/* GAYA KHUSUS TEKS COVER */#guest-name {
 
     font-family: var(--font-body);
@@ -248,9 +265,9 @@
 }#guest-name strong {
 
     font-weight: 700;
-   
+    margin-top: 5px;
 
-    color: var(--color-primary);
+    color: #604b5c;
 
     font-size: 1.2em; 
 
@@ -286,7 +303,7 @@
 
   margin: 15px 0 8px;
 
-  color: var(--color-primary); 
+  color: #a78ca2; 
 
   animation: fadeIn 0.8s ease-out forwards;
 
@@ -308,57 +325,49 @@
 
     margin-bottom: 25px; 
 
-    color: var(--color-text); 
+    color: #584c55; 
 
     opacity: 0; 
 
-}/* 4. Tombol Cover */.open-btn {
-
-  background: var(--color-primary); 
-
+}/* Tombol Cover dengan efek berkedip pelan */
+.open-btn {
+  background: var(--color-primary);
   color: #ffffff;
-
   border: none;
-
-  padding: 12px 30px; 
-
+  padding: 12px 30px;
   font-size: 1rem;
-
   font-weight: 700;
-
   border-radius: 50px;
-
   cursor: pointer;
-
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-
-  box-shadow: 0 6px 15px rgba(212, 167, 183, 0.6); 
-
+  box-shadow: 0 6px 15px rgba(212, 167, 183, 0.6);
   letter-spacing: 0.8px;
-
   text-transform: uppercase;
-
-  max-width: 90%; 
-
+  max-width: 90%;
   width: auto;
+  animation: slowBlink 2s infinite; /* Berkedip pelan */
+  margin-bottom: 5px;
+}
 
-  animation: fadeIn 0.8s ease-out forwards;
-
-  opacity: 0;
-
-  animation-delay: 1.6s;
-
-  margin-bottom: 5px; 
-
-}.open-btn:hover {
-
-  background: #b88f9f; 
-
-  transform: scale(1.05) rotateZ(1deg); 
-
+.open-btn:hover {
+  background: #b88f9f;
+  transform: scale(1.05) rotateZ(1deg);
   box-shadow: 0 10px 20px rgba(212, 167, 183, 0.8);
+}
 
-}/* ================================================= *//* ✅ KONDISI: main.html BISA DI-SCROLL *//* ================================================= */.main-page {
+/* Animasi slowBlink */
+@keyframes slowBlink {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; } /* separuh transparan */
+  100% { opacity: 1; }
+}
+
+
+
+
+
+
+/* ================================================= *//* ✅ KONDISI: main.html BISA DI-SCROLL *//* ================================================= */.main-page {
 
     /* MENGAKTIFKAN SCROLL di main.html */
 
