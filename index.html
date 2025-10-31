@@ -1,124 +1,222 @@
-<!DOCTYPE html> <!-- Menentukan tipe dokumen HTML5 -->
-
-<html lang="id"> <!-- Bahasa halaman adalah Bahasa Indonesia -->
-
+<!DOCTYPE html>
+<html lang="id">
 <head>
-    <!-- Informasi meta (tidak ditampilkan) -->
-    <meta charset="UTF-8" /> <!-- Mendukung semua karakter termasuk emoji -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- Responsive di HP -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Undangan Pernikahan Animasi Modern - Budi & Jeiny</title>
 
-    <title>Undangan Pernikahan Animasi Modern - Budi & Jeiny</title> <!-- Judul tab browser -->
-
-    <!-- Import Font dari Google -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Import file CSS utama untuk styling -->
+    <!-- CSS UTAMA — MENGGUNAKAN style.css ANDA -->
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Mark / teks RealLabs di kanan bawah */
-        .mark-bottom-right {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            background: rgba(255, 255, 255, 0.7);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
-            color: #333;
-            z-index: 999;
+        /* ============================================= */
+        /* TAMBAHAN KHUSUS UNTUK index.html              */
+        /* ============================================= */
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: var(--font-body);
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('assets/Bg_Depan.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 60px 16px; /* JAUH DARI ATAS & BAWAH */
+        }
+
+        /* COVER — KECIL, SESUAI style.css ANDA */
+        .cover {
+            max-width: 310px !important;   /* LEBIH KECIL */
+            width: 84vw !important;
+            padding: 24px 20px !important;
+            margin: 0 auto;
+            animation: fadeIn var(--animation-duration) ease-out forwards;
+            opacity: 0;
+            animation-delay: 0.2s;
+        }
+
+        /* NAMA TAMU — SESUAI KODE AWAL */
+        #guest-name {
+            margin: 38px 0 12px !important;
+            font-size: 1.05rem !important;
+            line-height: 1.5 !important;
+            color: var(--color-text-medium) !important;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+            animation-delay: 0.8s;
+        }
+        #guest-name strong {
+            font-weight: 700;
+            color: var(--color-black);
+            font-size: 1.25em;
+            display: block;
+            margin-top: 6px;
+        }
+
+        /* JUDUL */
+        .cover h1 {
+            color: #001e65 !important;
+            font-size: 1.55rem !important;
+            margin: 12px 0 !important;
+            font: var(--font-heading) !important;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+            animation-delay: 0.8s;
+        }
+
+        /* NAMA PENGANTIN */
+        .cover .names {
+            font-size: 2.5rem !important;
+            margin: 6px 0 !important;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .cover .names:first-of-type { animation-delay: 1.1s; }
+        .cover .names:last-of-type { animation-delay: 1.1s; }
+
+        .connector {
+            font-size: 2.1rem !important;
+            margin: 0 8px !important;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+            animation-delay: 1.2s;
+        }
+
+        .date-text {
+            font-size: 0.82rem !important;
+            max-width: 92% !important;
+            margin: 15px auto !important;
+            animation-delay: 1.4s;
+        }
+
+        .invitation-closer {
+            font-size: 0.90rem !important;
+            margin: 18px 0 20px !important;
+            animation-delay: 1.5s;
+        }
+
+        /* TOMBOL BUKA */
+        .open-btn {
+            width: 80% !important;
+            max-width: 240px !important;
+            padding: 11px 16px !important;
+            font-size: 0.96rem !important;
+            animation-delay: 1.7s;
+        }
+
+       /* WATERMARK — SUDUT KANAN BAWAH PALING KANAN */
+.mark-bottom-right {
+    position: fixed;
+    bottom: 8px;     /* Lebih dekat ke bawah */
+    right: 8px;      /* Paling kanan */
+    background: rgba(0, 0, 0, 0.099);
+    color: #660268;
+    padding: 0px 14px;
+    border-radius: 9px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 5px #b3e0f6, 0 0 10px #737173;
+    box-shadow: 0 0 11px rgba(149, 200, 237, 0.72);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    visibility: hidden;
+    z-index: 999;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1.2s;
+    /* Tambahan: agar tidak terpotong di layar kecil */
+    max-width: calc(100vw - 16px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mark-bottom-right:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 0 3px rgba(84, 83, 84, 0.8), 0 0 20px rgba(142, 141, 142, 0.5);
+    background: rgba(0,0,0,0.6);
+    color: #e0e0e0;
+}
+
+@media (max-width: 360px) {
+    .mark-bottom-right {
+        bottom: 6px;
+        right: 6px;
+        padding: 5px 12px;
+        font-size: 9.5px;
+        border-radius: 18px;
+    }
+}
+
+        /* RESPONSIVE EKSTRA */
+        @media (max-width: 480px) {
+            body { padding: 50px 14px; }
+            .cover { max-width: 300px !important; padding: 20px 16px !important; }
+            .cover h1 { font-size: 1.75rem !important; }
+            .cover .names { font-size: 2.3rem !important; }
+            .connector { font-size: 1.9rem !important; }
+            .open-btn { font-size: 0.94rem !important; padding: 10px 14px !important; max-width: 230px !important; }
+        }
+        @media (max-height: 600px) {
+            body { padding: 40px 14px; }
+            .cover { padding: 18px 14px !important; }
+            .cover .names { font-size: 2.2rem !important; }
+            .cover h1 { font-size: 1.7rem !important; }
         }
     </style>
 </head>
 
-<body>
-
-    <!-- Bagian Cover / Halaman Pembuka -->
+<body class="cover-page">
+    <!-- COVER -->
     <div class="cover">
-
-        <!-- Dekorasi bagian atas & bawah cover -->
         <div class="decorative-border-top"></div>
         <div class="decorative-border-bottom"></div>
 
-        <!-- Nama tamu yang otomatis akan tampil dari link -->
-        <h2 id="guest-name" style="margin-bottom:18px;"></h2>
+        <!-- NAMA TAMU -->
+        <h2 id="guest-name"></h2>
 
-        <!-- Judul utama -->
-       <h1 style="color: #8d5c77;">Undangan Pernikahan</h1>
+        <!-- JUDUL -->
+        <h1>Undangan Pernikahan</h1>
 
+        <!-- NAMA PENGANTIN -->
+        <p class="names">Budi</p>
+        <span class="connector">&</span>
+        <p class="names">Jeiny</p>
 
-        
-
-        <!-- Nama kedua pengantin -->
-        <p class="names" style="animation-delay: 1.1s;">Budi</p>
-        <span class="connector" style="animation-delay: 1.2s;">&</span>
-        <p class="names" style="animation-delay: 1.1s;">Jeiny</p>
-        
-
-        <!-- Kalimat ajakan -->
-        <p class="date-text" style="animation-delay: 1.4s;" >
+        <!-- TEKS -->
+        <p class="date-text">
            Dalam kebahagiaan dan rasa syukur, kami mengundang Anda untuk hadir dalam perayaan hari bahagia kami.
         </p>
-
-        <!-- Penutup pada cover -->
-        <p class="invitation-closer" style="animation: fadeIn 0.8s ease-out forwards;  animation-delay: 1.5s;">
+        <p class="invitation-closer">
             Kami tunggu kehadiran Anda!
         </p>
 
-        <!-- Tombol untuk membuka halaman utama undangan -->
+        <!-- TOMBOL -->
         <button class="open-btn" onclick="bukaUndangan()">Buka Undangan</button>
     </div>
 
+    <!-- WATERMARK -->
+    <span class="mark-bottom-right" style="visibility: hidden;">
+       Design by; RealLabs Studio
+    </span>
 
-    <!-- Tag pembuat / watermark keren -->
-<span class="mark-bottom-right" style="animation: fadeIn 1s ease-out forwards; animation-delay: 1.2s; visibility: hidden;">
-   Design by; RealLabs Studio
-</span>
-
-
-
-<style>
-.mark-bottom-right {
-    position: fixed;
-    bottom: 12px;
-    right: 12px;
-    background: rgba(0, 0, 0, 0.099); /* Semi-transparent */
-    color: #4c4d4d; /* Warna neon modern */
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-shadow: 0 0 5px #a29fa2, 0 0 10px #737173;
-    box-shadow: 0 0 8px rgba(255, 77, 240, 0.122);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    visibility: hidden; /* fadeIn akan menampilkan */
-    z-index: 999;
-}
-
-.mark-bottom-right:hover {
-    transform: scale(1.1) rotate(-2deg);
-    box-shadow: 0 0 12px rgba(84, 83, 84, 0.8), 0 0 20px rgba(142, 141, 142, 0.5);
-    background: rgba(0,0,0,0.6);
-}
-
-/* Animasi fadeIn */
-@keyframes fadeIn {
-    from { opacity: 0; visibility: hidden; }
-    to { opacity: 1; visibility: visible; }
-}
-</style>
-
-
-
-   
-
-    <!-- Menghubungkan file JavaScript -->
+    <!-- JavaScript -->
     <script src="script.js"></script>
-
-    
 </body>
 </html>

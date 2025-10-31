@@ -1,274 +1,163 @@
 // ===================================
-
-// === FUNGSI COVER (index.html) ===
-
+// script.js — SATU FILE UNTUK SEMUA
 // ===================================
 
-
-
-// Fungsi Utama untuk Mengambil Nama Tamu dari URL
-
+// === 1. FUNGSI UTAMA ===
 function getGuestName() {
-
     let path = window.location.pathname;
-
-    
-
-    // Menghapus slash di depan dan mengganti simbol (- atau _) dengan spasi
-
     let name = path.substring(1).replace(/[_|-]/g, ' ');
-
-
-
-    // Jika URL kosong atau menuju index.html, gunakan nama default
-
-    if (name === "" || name.toLowerCase() === "index.html") {
-
-        return "Keluarga Besar"; 
-
+    
+    // Jika kosong atau index.html → default
+    if (!name || name.toLowerCase().includes("index") || name.toLowerCase().includes("main")) {
+        return "Keluarga Besar";
     }
-
-
-
-    // Kapitalisasi setiap kata (Contoh: budi santoso -> Budi Santoso)
-
-    name = name.split(' ').map(word => 
-
-        word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-
-    ).join(' ');
-
-
-
-    return name;
-
+    
+    // Kapitalisasi
+    return name
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ');
 }
 
-
-// script.js
-
 function bukaUndangan() {
-    // 1. Simpan penanda di sessionStorage
-    // Ini memberi tahu halaman 'main.html' bahwa musik harus diputar
     sessionStorage.setItem('playMusicOnLoad', 'true');
-
-    // 2. Tambahkan nama tamu ke URL (Opsional, tapi praktik baik)
-    // Asumsi: Jika Anda ingin nama tamu dipertahankan, Anda bisa mengambilnya dari URL
-    // Namun, karena kode Anda tidak menunjukkan cara mengambil nama tamu, kita abaikan dulu.
-    
-    // 3. Arahkan ke halaman utama
-    // Ganti 'main.html' jika nama file Anda berbeda.
     window.location.href = 'main.html';
 }
 
-
-
-// Fungsi yang berjalan saat seluruh konten HTML dimuat
-
+// === 2. DOM LOADED (HANYA SEKALI!) ===
 document.addEventListener('DOMContentLoaded', () => {
-
-    
-
     const guestName = getGuestName();
 
-    const guestElement = document.getElementById('guest-name');
+    // === COVER PAGE (index.html) ===
+    if (document.body.classList.contains('cover-page') || document.querySelector('.cover')) {
+        const guestContainer = document.getElementById('guest-name');
+        const guestStrong = document.getElementById('guest-name-strong');
 
+        if (guestContainer) {
+            // 1. Sisipkan gambar cincin (jika ada)
+            const ringImg = document.createElement('img');
+            ringImg.src = 'assets/cincin.png';
+            ringImg.alt = 'Cincin Pernikahan';
+            ringImg.classList.add('ring-icon');
+            ringImg.style.opacity = '0';
+            ringImg.style.animation = 'fadeIn 0.8s ease-out forwards';
+            ringImg.style.animationDelay = '0.5s';
+            guestContainer.parentNode.insertBefore(ringImg, guestContainer);
 
+            // 2. Tampilkan nama tamu
+            if (guestStrong) {
+                guestStrong.textContent = guestName;
+            } else {
+                // Jika tidak ada <strong>, buat
+                const strong = document.createElement('strong');
+                strong.textContent = guestName;
+                guestContainer.innerHTML = `Kepada Yth. Bapak/Ibu/Sdr/i:<br>`;
+                guestContainer.appendChild(strong);
+            }
 
-    // Cek apakah ini halaman Cover (index.html)
+            // 3. Animasi fadeIn untuk nama tamu
+            guestContainer.style.opacity = '0';
+            guestContainer.style.animation = 'fadeIn 0.9s ease-out forwards';
+            guestContainer.style.animationDelay = '0.8s';
+        }
 
-    if (guestElement && document.querySelector('.cover')) {
+        // Watermark muncul
+        const watermark = document.querySelector('.mark-bottom-right');
+        if (watermark) {
+            watermark.style.visibility = 'hidden';
+            setTimeout(() => {
+                watermark.style.visibility = 'visible';
+                watermark.style.opacity = '0';
+                watermark.style.animation = 'fadeIn 1s ease-out forwards';
+                watermark.style.animationDelay = '1.2s';
+            }, 100);
+        }
+    }
 
-        
-
-        // LOGIKA COVER
-
-        
-
-        // 1. SISIPKAN GAMBAR CINCIN
-
-        const ringImg = document.createElement('img');
-
-        ringImg.src = 'assets/cincin.png'; 
-
-        ringImg.alt = 'Cincin Pernikahan';
-
-        ringImg.classList.add('ring-icon'); 
-
-        
-
-        guestElement.parentNode.insertBefore(ringImg, guestElement);
-
-        
-
-        // 2. TAMPILKAN NAMA TAMU
-
-        guestElement.innerHTML = `Kepada Yth. Bapak/Ibu/Sdr/i: <br><strong>${guestName}</strong>`;
-
-        
-
-        guestElement.style.opacity = 0;
-
-        guestElement.style.animation = 'fadeIn 0.8s ease-out forwards';
-
-        guestElement.style.animationDelay = '0.8s'; 
-
-        
-
-    } else if (document.body.classList.contains('main-page')) {
-
-        
-
-        // ========================================
-
-        // === LOGIKA HALAMAN UTAMA (main.html) ===
-
-        // ========================================
-
-        
-
-        // 1. INISIASI MUSIK
-
+    // === MAIN PAGE (main.html) ===
+    else if (document.body.classList.contains('main-page')) {
+        // --- MUSIK ---
         const music = document.getElementById('background-music');
-
         const musicBtn = document.getElementById('music-toggle-btn');
-
         let isPlaying = false;
 
+        if (music && musicBtn) {
+            // Coba autoplay jika dari cover
+            if (sessionStorage.getItem('playMusicOnLoad') === 'true') {
+                const playPromise = music.play();
+                if (playPromise !== undefined) {
+                    playPromise
+                        .then(() => {
+                            isPlaying = true;
+                            musicBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                        })
+                        .catch(() => {
+                            isPlaying = false;
+                            musicBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                        });
+                }
+                sessionStorage.removeItem('playMusicOnLoad');
+            }
 
-
-        // Coba putar musik secara otomatis (karena user sudah berinteraksi di halaman cover)
-
-        const playPromise = music.play();
-
-
-
-        if (playPromise !== undefined) {
-
-            playPromise.then(() => {
-
-                isPlaying = true;
-
-                musicBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-
-            }).catch(error => {
-
-                // Autoplay dicekal oleh browser
-
-                isPlaying = false;
-
-                musicBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-
+            // Toggle manual
+            musicBtn.addEventListener('click', () => {
+                if (isPlaying) {
+                    music.pause();
+                    musicBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                } else {
+                    music.play().catch(() => {});
+                    musicBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                }
+                isPlaying = !isPlaying;
             });
-
         }
 
+        // --- RSVP IFRAME ---
+        const iframeRsvp = document.getElementById('hidden_iframe_rsvp');
+        if (iframeRsvp) {
+            iframeRsvp.onload = () => {
+                const form = document.querySelector('.rsvp-form');
+                if (form) form.style.display = 'none';
+                
+                const success = document.createElement('p');
+                success.className = 'success-message';
+                success.style.color = '#B76E79';
+                success.style.fontWeight = '600';
+                success.style.textAlign = 'center';
+                success.style.marginTop = '20px';
+                success.innerHTML = 'Terima Kasih! Konfirmasi Anda diterima.';
+                const rsvpSection = document.getElementById('rsvp');
+                if (rsvpSection) rsvpSection.appendChild(success);
+            };
+        }
 
+        // --- COUNTDOWN ---
+        const weddingDate = new Date("February 14, 2026 09:00:00").getTime();
+        const countdownEl = document.getElementById('countdown-timer');
 
-        // Event listener untuk tombol play/pause
+        if (countdownEl) {
+            const update = setInterval(() => {
+                const now = new Date().getTime();
+                const diff = weddingDate - now;
 
-        musicBtn.addEventListener('click', () => {
+                if (diff <= 0) {
+                    clearInterval(update);
+                    countdownEl.innerHTML = "<div class='expired'>Alhamdulillah, kami telah Sah!</div>";
+                    return;
+                }
 
-            if (isPlaying) {
+                const d = Math.floor(diff / 86400000);
+                const h = Math.floor((diff % 86400000) / 3600000);
+                const m = Math.floor((diff % 3600000) / 60000);
+                const s = Math.floor((diff % 60000) / 1000);
 
-                music.pause();
-
-                musicBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-
-            } else {
-
-                music.play();
-
-                musicBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-
-            }
-
-            isPlaying = !isPlaying;
-
-        });
-
-        
-    // Ambil elemen iframe
-    var iframeRsvp = document.getElementById('hidden_iframe_rsvp');
-    
-    // Pastikan iframe ada sebelum menambahkan listener
-    if (iframeRsvp) {
-        iframeRsvp.onload = function() {
-            // Logika ini akan berjalan SETELAH Google Forms memuat balasan di iframe
-            
-            // 1. Sembunyikan formulir
-            document.querySelector('.rsvp-form').style.display = 'none';
-            
-            // 2. Tampilkan pesan sukses
-            var successMessage = document.createElement('p');
-            successMessage.classList.add('success-message');
-            successMessage.innerHTML = '🎉 Terima Kasih! Konfirmasi kehadiran Anda telah diterima. 🎉';
-            
-            // 3. Masukkan pesan ke dalam section RSVP
-            document.getElementById('rsvp').appendChild(successMessage);
+                countdownEl.innerHTML = `
+                    <div class="time-box"><span class="number">${d}</span><span class="label">Hari</span></div>
+                    <div class="time-box"><span class="number">${h}</span><span class="label">Jam</span></div>
+                    <div class="time-box"><span class="number">${m}</span><span class="label">Menit</span></div>
+                    <div class="time-box"><span class="number">${s}</span><span class="label">Detik</span></div>
+                `;
+            }, 1000);
         }
     }
-  
- 
-
-        
-
-        
-
-        // 2. INISIASI COUNTDOWN TIMER
-
-        
-
-        // TANGGAL PERNIKAHAN: TAHUN, BULAN (0=Jan), TANGGAL, JAM, MENIT, DETIK
-
-        const weddingDate = new Date("Feb 14, 2026 09:00:00").getTime();
-
-        const countdownElement = document.getElementById('countdown-timer');
-
-
-
-        const updateCountdown = setInterval(() => {
-
-            const now = new Date().getTime();
-
-            const distance = weddingDate - now;
-
-
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-
-
-            if (distance < 0) {
-
-                clearInterval(updateCountdown);
-
-                countdownElement.innerHTML = "<div class='expired'>Alhamdulillah, kami telah Sah!</div>";
-
-            } else {
-
-                countdownElement.innerHTML = `
-
-                    <div class="time-box"><span class="number">${days}</span><span class="label">Hari</span></div>
-
-                    <div class="time-box"><span class="number">${hours}</span><span class="label">Jam</span></div>
-
-                    <div class="time-box"><span class="number">${minutes}</span><span class="label">Menit</span></div>
-
-                    <div class="time-box"><span class="number">${seconds}</span><span class="label">Detik</span></div>
-
-                `;  
-
-            }
-
-        }, 1000);
-
-    }
-
 });
