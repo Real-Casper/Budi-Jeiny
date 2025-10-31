@@ -188,6 +188,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         
+    // Ambil elemen iframe
+    var iframeRsvp = document.getElementById('hidden_iframe_rsvp');
+    
+    // Pastikan iframe ada sebelum menambahkan listener
+    if (iframeRsvp) {
+        iframeRsvp.onload = function() {
+            // Logika ini akan berjalan SETELAH Google Forms memuat balasan di iframe
+            
+            // 1. Sembunyikan formulir
+            document.querySelector('.rsvp-form').style.display = 'none';
+            
+            // 2. Tampilkan pesan sukses
+            var successMessage = document.createElement('p');
+            successMessage.classList.add('success-message');
+            successMessage.innerHTML = '🎉 Terima Kasih! Konfirmasi kehadiran Anda telah diterima. 🎉';
+            
+            // 3. Masukkan pesan ke dalam section RSVP
+            document.getElementById('rsvp').appendChild(successMessage);
+        }
+    }
+  
+ 
+
+        
 
         
 

@@ -30,6 +30,7 @@
 
 
 
+
 /* ✅ Animasi Warna Nama Pengantin */
  
 .cover .names {
@@ -94,13 +95,8 @@
 
   box-sizing: border-box;
 
-}/* 🔒 FIX: Mencegah scrolling pada halaman COVER (index.html) */html, body {
-
-    overflow: hidden; /* Menonaktifkan scroll secara default */
-
-    height: 100%; 
-
-}/* 2. Latar Belakang dan Layout Body (Default: untuk index.html) */body {
+}
+/* 2. Latar Belakang dan Layout Body (Default: untuk index.html) */body {
 
   font-family: var(--font-body);
 
@@ -659,35 +655,62 @@
 
     opacity: 0.8;
 
-}/* 📸 GALLERY */.gallery-grid {
+}
 
+
+/* 📸 GALLERY: Modern & Responsif CSS Grid */
+.gallery-section {
+    padding-bottom: 80px; /* Tambahkan sedikit padding di bawah section */
+}
+
+.gallery-grid {
     display: grid;
+    /* Membuat kolom lebih responsif: 
+       Di layar kecil, minimal 150px. Di layar besar, bisa lebih banyak kolom. */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px; /* Jarak antar foto */
+    max-width: 900px; /* Batasi lebar maksimal di desktop */
+    margin: 30px auto; /* Tengah-kan grid */
+}
 
-    grid-template-columns: 1fr 1fr;
-
-    gap: 10px;
-
-    max-width: 400px;
-
-    margin: 20px auto;
-
-}.gallery-img {
-
+.gallery-img {
     width: 100%;
+    /* Menggunakan height: 100% dan object-fit: cover untuk memastikan 
+       foto mengisi ruang grid tanpa terdistorsi */
+    height: 100%; 
+    object-fit: cover; 
+    border-radius: 8px; /* Sudut membulat */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Efek bayangan ringan */
+    cursor: zoom-in; /* Menandakan foto bisa diperbesar (jika Anda pakai lightbox) */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi halus */
+}
 
-    height: auto;
+/* Efek Keren saat kursor diarahkan (Hover) */
+.gallery-img:hover {
+    transform: scale(1.03); /* Memperbesar sedikit */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Bayangan sedikit lebih kuat */
+    z-index: 10;
+}
 
-    border-radius: 10px;
+/* Membuat Layout Lebih Dinamis (Opsional: hanya berfungsi jika foto minimal 3) */
+/* Foto ke-3 mengambil 2 kolom agar grid terlihat lebih menarik */
+.gallery-grid img:nth-child(3) {
+    grid-column: span 2; 
+}
 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+/* Di layar yang sangat kecil (mobile), kembalikan ke 1 kolom agar foto tidak terlalu kecil */
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr; /* Paksa 2 kolom di HP */
+        max-width: 100%;
+        padding: 0 15px;
+    }
+    
+    /* Batalkan efek span agar tidak mengganggu tata letak mobile 2 kolom */
+    .gallery-grid img:nth-child(3) {
+        grid-column: span 1; 
+    }
 
-    cursor: zoom-in; /* Tambahan agar terasa interaktif */
-
-    transition: transform 0.2s;
-
-}.gallery-img:hover {
-
-    transform: scale(1.02);
 
 }/* 💬 RSVP Form Styling */.rsvp-section {
 
