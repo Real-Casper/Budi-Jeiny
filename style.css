@@ -4,17 +4,18 @@
 /* ================================================= */
 :root {
   /* WARNA DASAR */
-  --color-background-soft: #d0dde8;     /* Abu kebiruan soft (latar utama) */
+  --color-background-soft: #d4dde6;     /* Abu kebiruan soft (latar utama) */
   --color-card-soft: #e8f1f9;           /* Kartu lebih terang */
   
   /* WARNA UTAMA & AKSEN */
   --color-primary: #A0D2EB;             /* Ice Blue - Dominan */
-  --color-rose-gold: #B76E79;           /* Rose Gold - Aksen */
+  
+--color-rose-gold: #B76E79;        /* Rose Gold - Aksen */
   --color-black: #2c2c2c;               /* Hitam pekat */
   
   /* WARNA TEKS */
   --color-text-dark: #3a4a5a;           /* Teks utama */
-  --color-text-medium: #5b7a90;         /* Teks sekunder */
+  --color-text-medium: #547389;         /* Teks sekunder */
   --color-text-light: #fdfefe;          /* Teks terang */
   --color-text: var(--color-text-dark);
   
@@ -267,6 +268,122 @@ body {
   background-color: var(--color-background-soft);
 }
 
+
+
+/* ================================================= */
+/* 2. Style Nama dan Informasi Orang Tua */
+/* ================================================= */
+.couple-block {
+    margin-bottom: 25px; /* Memberi jarak antara setiap pasangan nama */
+}
+
+/* GAYA UNTUK INTRO TEXT DI MAIN PAGE (Biasanya di bawah Main Header) */
+.intro-text {
+    font-size: 0.95rem;
+    color: var(--color-text-medium);
+    max-width: 850px;
+    margin: 0 auto 40px; 
+    line-height: 1.8; 
+    font-weight: 500;
+    
+    /* ⚡️ Sentuhan Neumorphism Inset (Disempurnakan) */
+    padding: 12px 10px; /* Ditingkatkan */
+    border-radius: 18px; /* Ditingkatkan */
+    background-color: var(--color-background-soft);
+    box-shadow: var(--shadow-solid-inset); 
+}
+
+ 
+
+.full-names {
+    font-family: var(--font-heading);
+    /*⚡️ WARNA ISI: ROSE GOLD */
+    font-size: 4.5rem; 
+    font-weight: 600;
+    color: #00bfff;
+    margin: 10px 0 5px; 
+    /* ⚡️ OUTLINE: BLACK PEKAT */
+    -webkit-text-stroke: 1.5px #0b61bd; /* Outline Hitam Pekat */
+     text-shadow: 0 4px 8px rgba(195, 22, 22, 0.2);   
+     animation: fadeIn 0.9s ease-out forwards;
+    transition: all 0.3s;
+}
+    .Salam {
+    font-display: var(--font-heading);
+    letter-spacing: 2px;
+    font-weight: 600;
+    /* ⚡️ UKURAN DAN WARNA UTAMA */
+    font-size: 1rem; /* Dibuat sedikit lebih besar untuk kesan mewah */
+    color: #43040c; /* Warna teks isi (Rose Gold) */
+    margin: 10px 0 8px; /* Margin lebih ringkas */
+    /* ⚡️ EFEK OUTLINE (TEXT STROKE) - Lebih Keren & Jelas */
+    -webkit-text-stroke: 1.5px #8f5757; /* Outline gelap */
+    text-shadow: 0 4px 8px rgba(145, 16, 16, 0.2); /* Bayangan lembut */
+    animation: fadeIn 0.9s ease-out forwards;
+    transition: all 0.3s;
+
+}
+.and {
+    /* ⚡️ AKSE N PEMISAH - Dibuat dengan Ice Blue yang kontras */
+    font-family: var(--font-heading);
+    font-size: 1.8px ; /* Dibuat lebih besar dari nama untuk fokus */
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-primary); /* Ice Blue */
+    margin: 0 0 15px 0; /* Memberi jarak di atas dan di bawah */
+    display: block; /* Memastikan & berada di barisnya sendiri */
+    opacity: 0;
+    animation: fadeIn 0.98s ease-out forwards;
+    animation-delay: 0.8s;
+    /* Menggunakan stroke agar menonjol seperti nama */
+    -webkit-text-stroke: 1px var(--color-rose-gold); 
+}
+.parent-info {
+    /* ⚡️ INFORMASI ORANG TUA - Dibuat lebih formal dan ringkas */
+    font-size: 0.8rem; /* Sedikit lebih besar dari 0.76rem agar mudah dibaca */
+    font-weight: 500;
+    color: var(--color-text-medium);
+    max-width: 450px;
+    margin: 0 auto 5px; /* Mengurangi margin bawah secara drastis */
+    line-height: 1.5;
+    opacity: 0.95;
+    padding: 0 10px; /* Sedikit padding horizontal */
+}
+
+/* Penyesuaian Responsif (Media Query dari kode sebelumnya) */
+@media (max-width: 550px) {
+    .full-names {
+        font-size: 3.5rem; /* Ukuran nama di ponsel */
+        -webkit-text-stroke: 1px var(--color-text-dark);
+    }
+    .and {
+        font-size: 4rem; /* Ukuran & di ponsel */
+        margin-bottom: 10px;
+    }
+    .couple-block {
+        margin-bottom: 20px;
+    }
+}
+
+
+.Pemberkatan {
+  font-size: 12px;
+  color: var(--color-text); /* pakai warna teks utama agar lebih kontras */
+  font-weight: 900; /* lebih bold */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.Resepsi {
+  font-size: 13px;
+  color: var(--color-text); /* pakai warna teks utama agar lebih kontras */
+  font-weight: 900; /* lebih bold */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
 .greeting {
   font-size: 0.95rem;
   color: var(--color-text-medium);
@@ -279,6 +396,7 @@ body {
   font-family: var(--font-heading);
   font-size: 4.2rem;
   color: var(--color-rose-gold);
+  
   margin: 12px 0;
   text-shadow: 0 3px 10px rgba(0,0,0,0.15);
 }
@@ -322,36 +440,115 @@ body {
 }
 .music-toggle-btn i { font-size: 1.2rem; }
 
-/* Countdown */
+/* COUNTDOWN TIMER - EFEK AKHIR (Rose Gold Angka, Ice Blue Label) */
 .countdown-container {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 22px;
+    display: flex;
+    justify-content: center;
+    /* Menggunakan jarak yang sedikit lebih lebar untuk kesan modern */
+    gap: 15px; 
+    flex-wrap: wrap;
+    margin-top: 30px; /* Margin dipertegas */
 }
+
 .time-box {
-  background-color: var(--color-card-soft);
-  color: var(--color-primary);
-  padding: 12px 6px;
-  border-radius: 12px;
-  min-width: 72px;
-  box-shadow: var(--shadow-solid-light);
+    /* Menggunakan variabel Soft Card yang sudah ditentukan */
+    background-color: var(--color-card-soft); 
+    
+    /* ⚡️ Padding dan Ukuran Ditingkatkan untuk Tampilan Lebih "Premium" */
+    padding: 18px 10px; 
+    min-width: 80px; 
+    border-radius: 20px; /* Sudut lebih membulat */
+    
+    /* Menggunakan Shadow Split Neumorphism untuk efek 3D timbul */
+    box-shadow: var(--shadow-solid-light); 
+    
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.time-box:hover {
+    /* Memberi efek tekan/timbul yang halus saat disentuh */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15); /* Bayangan sedikit lebih tajam saat hover */
+}
+
 .time-box .number {
-  font-size: 1.9rem;
-  font-weight: 700;
+    /* ⚡️ Angka dengan Rose Gold yang Mewah */
+    color: var(--color-rose-gold); 
+    font-size: 2.5rem; /* Ukuran dinaikkan lagi agar SANGAT menonjol */
+    font-weight: 900; /* Paling tebal */
+    line-height: 1.1;
+    /* Memberi shadow halus untuk kedalaman pada teks */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); 
+    display: block;
 }
+
 .time-box .label {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--color-text-medium);
+    /* ⚡️ Label dengan Ice Blue yang Modern */
+    font-size: 0.85rem; /* Ukuran ditingkatkan */
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-primary); /* Ice Blue */
+    margin-top: 8px; /* Jarak dengan angka dipertegas */
+    display: block;
 }
+
 .expired {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--color-rose-gold);
+    font-size: 1.35rem; /* Ukuran pesan selesai sedikit lebih besar */
+    font-weight: 700;
+    color: var(--color-rose-gold);
+}
+
+/* Penyesuaian Responsif untuk Layar Besar */
+@media (min-width: 550px) {
+    .countdown-container {
+        gap: 20px;
+    }
+    .time-box { 
+        min-width: 120px; 
+        padding: 30px 15px; 
+        border-radius: 25px;
+    }
+    .time-box .number { 
+        font-size: 4.5rem; /* Angka sangat besar di desktop */
+    }
+    .time-box .label { 
+        font-size: 1rem; 
+    }
+}
+
+/* COUNTDOWN SECTION - Peningkatan Tampilan */
+.countdown-section {
+    /* Menggunakan background soft dark mode */
+    background-color: var(--color-background-soft); 
+    padding: 50px 20px; /* Padding ditingkatkan untuk ruang nafas */
+}
+
+.section-title {
+    /* Judul Rose Gold (Aksen Mewah) */
+    font-family: var(--font-heading);
+    font-size: 2.2rem; /* Ukuran sedikit lebih besar */
+    color: var(--color-rose-gold); 
+    margin-bottom: 20px;
+    /* Memberi shadow teks lembut agar terlihat timbul */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); 
+}
+
+.countdown-intro {
+    /* Intro Text Ice Blue (Aksen Modern) */
+    font-size: 0.95rem;
+    color: var(--color-text-medium);
+    max-width: 450px;
+    margin: 0 auto 35px; /* Margin bawah dipertegas */
+    line-height: 1.8; /* Line height ditingkatkan untuk keterbacaan */
+    font-weight: 500;
+    
+    /* Sentuhan Neumorphism Inset */
+    padding: 10px 15px; 
+    border-radius: 12px;
+    background-color: var(--color-background-soft);
+    /* Bayangan Inset halus untuk membedakan teks dari background */
+    box-shadow: var(--shadow-solid-inset); 
 }
 
 /* Section Title & Cards */
@@ -359,11 +556,11 @@ body {
   font-family: var(--font-heading);
   font-size: 2.1rem;
   color: var(--color-rose-gold);
-  margin-bottom: 32px;
+  margin-bottom: 9px;
 }
 
 .card {
-  background-color: var(--color-card-soft);
+  background-color: #d0dde8;
   border-radius: 20px;
   padding: 28px;
   margin: 22px auto;
@@ -421,14 +618,16 @@ body {
 
 /* Quote */
 .quote-section {
-  background-color: var(--color-primary);
+  background-color: #97cce4;
   color: var(--color-text-light);
+  border-radius: 10px;
   padding: 55px 22px;
   box-shadow: var(--shadow-deep);
 }
 .quote-text {
   font-style: italic;
   font-size: 1.05rem;
+   
   line-height: 1.7;
   margin-bottom: 16px;
 }
@@ -468,7 +667,7 @@ body {
   max-width: 400px;
   margin: 22px auto;
   padding: 28px;
-  background-color: var(--color-card-soft);
+  
   border-radius: 20px;
   box-shadow: var(--shadow-solid-light);
   text-align: left;
