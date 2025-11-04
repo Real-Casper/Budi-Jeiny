@@ -334,7 +334,7 @@ body {
     display: block; /* Memastikan & berada di barisnya sendiri */
     opacity: 0;
     animation: fadeIn 0.98s ease-out forwards;
-    animation-delay: 0.8s;
+    animation-delay: 0.3s;
     /* Menggunakan stroke agar menonjol seperti nama */
     -webkit-text-stroke: 1px var(--color-rose-gold); 
 }
@@ -482,10 +482,10 @@ body {
         /* Countdown Timer dengan Border (Menggabungkan .countdown-item & .time-box) */
         .countdown-item {
             /* Menggunakan variabel Soft Card yang sudah ditentukan */
-            background-color: var(--color-card-soft); 
+            background-color: #d4dde6;; 
             
             /* Border 2px solid neon blue (dari .countdown-item) */
-            border: 2px solid #9d5266; 
+            border: 2px solid #efefef; 
 
             /* Padding dan Ukuran Ditingkatkan untuk Tampilan Lebih "Premium" */
             padding: 18px 10px; 
@@ -501,7 +501,7 @@ body {
             cursor: pointer;
             
             /* Teks tetap neon blue dan menggunakan Orbitron */
-            color: #126bbe; 
+            color: #202020; 
             font-family: 'Orbitron', monospace;
         }
 
@@ -509,7 +509,7 @@ body {
             /* Memberi efek tekan/timbul yang halus saat disentuh */
             transform: translateY(-2px);
             /* Bayangan sedikit lebih tajam saat hover */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(16, 162, 236, 0.5); 
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(107, 111, 113, 0.5); 
         }
 
         .countdown-value {
@@ -517,7 +517,7 @@ body {
             font-weight: 700;
             line-height: 1;
             /* Hapus animasi glitch, kembalikan shadow ke glow yang halus */
-            text-shadow: 0 0 8px #1094ec; 
+            text-shadow: 0 0 8px #808e98; 
             animation: none; /* Pastikan animasi glitch dinonaktifkan */
         }
 
