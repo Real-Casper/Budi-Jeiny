@@ -444,55 +444,59 @@
 
 
 
-    <footer class="main-footer section">
 
-    <p class="closing-text">Merupakan suatu kehormatan ...</p>
- 
-    <style>
-     /* Styling Dasar (untuk Web dan Mobile) */
- 
 
-.salam {
-    line-height: 1.6; /* Jarak baris yang nyaman */
-    font-size: 18px;
-    color: #333; /* Warna teks gelap */
-}
-
-.nama-keluarga {
-    display: block; /* Memastikan nama keluarga berada di baris baru */
-    margin-top: 5px; /* Sedikit ruang di atas nama keluarga */
-    font-size: 24px; /* Ukuran font yang lebih besar untuk penekanan */
-    color: #000; /* Warna hitam penuh */
-}
-
-/* --- Media Query untuk Layar Mobile (Lebar Maksimal 600px) --- */
-@media (max-width: 600px) {
-    .salam {
-        font-size: 16px; /* Ukuran font sedikit dikecilkan untuk mobile */
-        padding: 10px; /* Padding dikurangi */
+<style>
+    .main-footer {
+        text-align: center;
+        margin-top: 10px;
+       
+        font-size: 0.9rem;
+        color: #555;
     }
 
-    .nama-keluarga {
-        font-size: 20px; /* Ukuran font nama keluarga sedikit dikecilkan untuk mobile */
+    
+    /* Section Title & Cards */
+    .sections-title {
+        font-family: var(--font-heading, Arial, sans-serif);
+        font-size: 30px;
+        color: #ae1f4e; 
+         
+        text-align: center;
     }
-}
-    </style>
+
+    .nama-keluarga strong {
+        /* default color, bisa diganti */
+        color: #5b5454;
+        
+    }
+
+    /* Warna khusus untuk tiap nama */
+    .nama-budi {
+        color: #ae1f4e;   /* contoh: biru */
+         font-size: 28px;
+         
+    }
+
+    
+</style>
 </head>
 <body>
 
-    <p class="salam">
-        Kami yang Berbahagia,<br>
-        <span class="nama-keluarga">
-            <strong>Keluarga Budi & Keluarga Jeiny</strong>
-        </span>
-    </p>
+<footer class="main-footer section">
+    <p class="intro-text">Merupakan suatu kehormatan ...</p>
+ 
+
+<p class="sections-title">
+    Kami yang Berbahagia,<br>
+    <span class="nama-keluarga">
+        <strong>
+            <span class="nama-budi">Keluarga Budi & Keluarga Jeiny</span>
+        </strong>
+    </span>
+</p>
 
 </body>
-</html>
-
-
-
-
 
 
 
