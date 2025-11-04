@@ -446,6 +446,203 @@
 
 
 
+<title>Gift Section</title>
+    <style>
+        /* ----------------------------------- */
+        /* --------- GLOBAL STYLING ---------- */
+        /* ----------------------------------- */
+
+       
+         
+ 
+        /* ----------------------------------- */
+        /* --------- GIFT CONTAINER ---------- */
+        /* ----------------------------------- */
+
+        /* 💻 Tampilan Desktop/Tablet (Menggunakan Grid) */
+        .gift-container {
+            display: grid;
+            /* Membuat minimal 3 kolom di desktop/tablet */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gift-item {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 25px 20px;
+            text-align: center;
+            /* Shadow modern */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex; /* Untuk tata letak vertikal konten */
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .gift-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.2);
+        }
+
+        /* ----------------------------------- */
+        /* --------- GIFT ELEMENTS ----------- */
+        /* ----------------------------------- */
+
+        .gift-icon {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            /* Efek 3D ringan pada icon */
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .qr-code {
+            width: 120px;
+            height: 120px;
+            margin: 10px auto;
+            border-radius: 10px;
+            border: 3px solid #f0f0f0; /* Border ringan */
+        }
+
+        .gift-item p {
+            margin: 3px 0;
+            font-size: 0.95rem;
+        }
+
+        .gift-item strong {
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: 700;
+        }
+
+        /* ⚡️ Styling Tombol Salin yang Lebih Bersih */
+        .copy-btn {
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: #f0f0f0; 
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background-color 0.2s, color 0.2s;
+            align-self: center; /* Memastikan tombol di tengah */
+            width: 80%;
+        }
+
+        .copy-btn:hover {
+            background-color: #e0e0e0;
+            color: #000;
+        }
+
+        .thank-you {
+            margin-top: 40px;
+            font-size: 1.1rem;
+            color: #b3003b; /* Warna aksen yang hangat */
+            font-weight: 600;
+        }
+
+        /* ----------------------------------- */
+        /* --------- MOBILE MEDIA QUERY ------ */
+        /* ----------------------------------- */
+        
+        @media (max-width: 768px) {
+            .gift-container {
+                display: flex; /* Ganti ke flex untuk scroll horizontal */
+                flex-wrap: nowrap;
+                overflow-x: auto; /* Aktifkan scroll horizontal di mobile */
+                justify-content: flex-start;
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-bottom: 15px; /* Tambahkan padding bawah untuk ruang scrollbar */
+            }
+            
+            .gift-item {
+                flex-shrink: 0;
+                min-width: 160px; /* Lebar minimum kartu di mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section id="gift" class="section">
+        <h2 class="section-title">Gift / Hadiah</h2>
+        <p class="intro-text">Jika berkenan memberikan hadiah, silakan pilih salah satu metode pembayaran berikut:</p>
+
+        <div class="gift-container">
+            <div class="gift-item">
+                <img src="assets/BNI.jpg" alt="BNI" class="gift-icon">
+                <p><strong>BNI</strong></p>
+                <p>Jeiny & Budi</p>
+                <p>No. Rek: <span class="account-number">1234-5678-9012</span></p>
+                <button class="copy-btn" onclick="copyToClipboard('123456789012')">Salin</button>
+            </div>
+
+            <div class="gift-item">
+                <img src="assets/Dana.jpg" alt="DANA" class="gift-icon">
+                <p><strong>DANA</strong></p>
+                <p>Jeiny & Budi</p>
+                <p>No. HP: <span class="account-number">0812-3456-7890</span></p>
+                <button class="copy-btn" onclick="copyToClipboard('081234567890')">Salin</button>
+            </div>
+
+            <div class="gift-item">
+                <img src="assets/ovo.jpg" alt="OVO" class="gift-icon">
+                <p><strong>OVO</strong></p>
+                <p>Jeiny & Budi</p>
+                <p>No. HP: <span class="account-number">0812-3456-7890</span></p>
+                <button class="copy-btn" onclick="copyToClipboard('081234567890')">Salin</button>
+            </div>
+
+            <div class="gift-item">
+                <img src="assets/allobank.jpg" alt="AlloBank" class="gift-icon">
+                <p><strong>AlloBank</strong></p>
+                <p>Jeiny & Budi</p>
+                <p>No. Rek: <span class="account-number">1234-5678-9012</span></p>
+                <button class="copy-btn" onclick="copyToClipboard('123456789012')">Salin</button>
+            </div>
+
+            <div class="gift-item">
+                <img src="assets/Qris.jpg" alt="QRIS" class="gift-icon">
+                <p><strong>QRIS</strong></p>
+                <p>Scan QR untuk transfer</p>
+                <img src="https://via.placeholder.com/120x120.png?text=QR+Code+Anda" alt="QR Code" class="qr-code">
+                </div>
+        </div>
+
+        <p class="thank-you">Terima kasih Atas Doa/ucapan Dan hadiahnya 💖</p>
+    </section>
+
+    <script>
+    function copyToClipboard(text) {
+        // Menghilangkan semua spasi dan strip dari teks sebelum menyalin
+        const cleanText = text.replace(/[-\s]/g, ''); 
+        
+        navigator.clipboard.writeText(cleanText).then(() => {
+            // Memberikan notifikasi yang lebih jelas
+            alert('Nomor berhasil disalin: ' + text);
+        }).catch(err => {
+            console.error('Gagal menyalin:', err);
+            alert('Gagal menyalin. Browser Anda mungkin tidak mendukung fitur ini atau ada masalah teknis.');
+        });
+    }
+    </script>
+
+</body>
+
+
+
+
+
+
+
+
 <style>
     .main-footer {
         text-align: center;
@@ -503,26 +700,85 @@
  
 
 
+<span class="mark-bottom-ce">
+    Design by © RealLabs Studio | CasperProjectofficial
+</span>
+
+<style>
+/* ----------------------------------- */
+/* --------- WATERMARK STYLING ------- */
+/* ----------------------------------- */
+
+.mark-bottom-ce {
+    display: block;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+
+    /* Futuristic Font */
+    font-family: 'Orbitron', 'Courier New', monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    /* Gradient Text with multiple colors */
+    background: linear-gradient(90deg, #05b3d6, #000000, #be4a5b); /* ice blue → black → rose gold */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Neon Glow */
+    text-shadow:
+        0 0 5px #0788a2,
+        0 0 10px #b76e79,
+        0 0 15px #000000;
+    opacity: 0.95;
+
+    /* Optional flicker animation */
+    animation: neon-flicker 10s infinite alternate;
+}
+
+/* Flicker animation */
+@keyframes neon-flicker {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        text-shadow:
+            0 0 5px #a8f0ff,
+            0 0 10px #b76e79,
+            0 0 15px #000000;
+    }
+    10%, 30%, 50%, 70%, 90% {
+        text-shadow:
+            0 0 2px #a8f0ff,
+            0 0 5px #b76e79,
+            0 0 7px #000000;
+    }
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+    .mark-bottom-ce {
+        font-size: 10px;
+        margin-top: 200px;
+    }
+}
+
+/* Google Fonts Orbitron */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+</style>
 
 
 
 
 
+       <div class="nav-bottom">
+    <a href="#home" class="nav-item"><i class="fas fa-home"></i> Home</a>
+    <a href="#event" class="nav-item"><i class="far fa-calendar-alt"></i> Event</a>
+    <a href="#gallery" class="nav-item"><i class="fas fa-camera"></i> Galeri</a>
+    <a href="#rsvp" class="nav-item"><i class="fas fa-comment-dots"></i> RSVP</a>
+    <a href="#guestbook" class="nav-item"><i class="fas fa-book"></i> Doa</a>
+    <a href="#gift" class="nav-item"><i class="fas fa-gift"></i> Gift</a>
+</div>
 
-
-        <div class="nav-bottom">
-
-      <a href="#home" class="nav-item"><i class="fas fa-home"></i> Home</a>
-
-      <a href="#event" class="nav-item"><i class="far fa-calendar-alt"></i> Event</a>
-
-      <a href="#gallery" class="nav-item"><i class="fas fa-camera"></i> Galeri</a>
-
-      <a href="#rsvp" class="nav-item"><i class="fas fa-comment-dots"></i> RSVP</a>
-
-      <a href="#guestbook" class="nav-item"><i class="fas fa-book"></i> Doa</a>
-
-    </div>
 
   </footer>
 
@@ -645,9 +901,9 @@
 
 
   </script>
+ 
 
-
-
+  
 </body>
 
 </html>
