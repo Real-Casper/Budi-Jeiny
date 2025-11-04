@@ -338,17 +338,40 @@ body {
     /* Menggunakan stroke agar menonjol seperti nama */
     -webkit-text-stroke: 1px var(--color-rose-gold); 
 }
+
 .parent-info {
-    /* ⚡️ INFORMASI ORANG TUA - Dibuat lebih formal dan ringkas */
-    font-size: 0.8rem; /* Sedikit lebih besar dari 0.76rem agar mudah dibaca */
-    font-weight: 500;
-    color: var(--color-text-medium);
-    max-width: 450px;
-    margin: 0 auto 5px; /* Mengurangi margin bawah secara drastis */
-    line-height: 1.5;
+    /* Atur jenis font */
+    font-family: 'Times New Roman', serif; 
+    
+    /* Ukuran font default (untuk desktop) */
+     font-size: 0.8rem;
+    
+    /* Jarak baris */
+    line-height: 1.6;
+    
+    /* Warna teks */
+    color: #444; 
+    
+    /* Gaya italic untuk penekanan (opsional) */
+    font-style: italic;
+
     opacity: 0.95;
-    padding: 0 10px; /* Sedikit padding horizontal */
+
+    padding: 0 10px;
+    
+    /* Jarak atas dan bawah */
+    margin: 15px 0 25px 0;
 }
+
+ 
+
+/* Media Query untuk Mobile */
+@media (max-width: 600px) {
+    .parent-info {
+        font-size: 1rem; /* Sedikit dikecilkan di mobile */
+        margin: 10px 0 20px 0;
+    }
+} 
 
 /* Penyesuaian Responsif (Media Query dari kode sebelumnya) */
 @media (max-width: 550px) {
