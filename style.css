@@ -464,57 +464,73 @@ body {
 .music-toggle-btn i { font-size: 1.2rem; }
 
 /* COUNTDOWN TIMER - EFEK AKHIR (Rose Gold Angka, Ice Blue Label) */
-.countdown-container {
-    display: flex;
-    justify-content: center;
-    /* Menggunakan jarak yang sedikit lebih lebar untuk kesan modern */
-    gap: 15px; 
-    flex-wrap: wrap;
-    margin-top: 30px; /* Margin dipertegas */
-}
 
-.time-box {
-    /* Menggunakan variabel Soft Card yang sudah ditentukan */
-    background-color: var(--color-card-soft); 
-    
-    /* ⚡️ Padding dan Ukuran Ditingkatkan untuk Tampilan Lebih "Premium" */
-    padding: 18px 10px; 
-    min-width: 80px; 
-    border-radius: 20px; /* Sudut lebih membulat */
-    
-    /* Menggunakan Shadow Split Neumorphism untuk efek 3D timbul */
-    box-shadow: var(--shadow-solid-light); 
-    
-    text-align: center;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
+  /* ----------------------------------- */
+        /* --------- COUNTDOWN STYLING ------- */
+        /* ----------------------------------- */
 
-.time-box:hover {
-    /* Memberi efek tekan/timbul yang halus saat disentuh */
-    transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15); /* Bayangan sedikit lebih tajam saat hover */
-}
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            /* Menggunakan jarak yang sedikit lebih lebar untuk kesan modern */
+            gap: 15px; 
+            flex-wrap: wrap;
+            margin-top: 10vh; /* Sesuaikan dari 30px agar lebih ke tengah */
+            padding: 20px;
+        }
 
-.time-box .number {
-    /* ⚡️ Angka dengan Rose Gold yang Mewah */
-    color: var(--color-rose-gold); 
-    font-size: 2.5rem; /* Ukuran dinaikkan lagi agar SANGAT menonjol */
-    font-weight: 900; /* Paling tebal */
-    line-height: 1.1;
-    /* Memberi shadow halus untuk kedalaman pada teks */
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); 
-    display: block;
-}
+        /* Countdown Timer dengan Border (Menggabungkan .countdown-item & .time-box) */
+        .countdown-item {
+            /* Menggunakan variabel Soft Card yang sudah ditentukan */
+            background-color: var(--color-card-soft); 
+            
+            /* Border 2px solid neon blue (dari .countdown-item) */
+            border: 2px solid #9d5266; 
 
-.time-box .label {
-    /* ⚡️ Label dengan Ice Blue yang Modern */
-    font-size: 0.85rem; /* Ukuran ditingkatkan */
-    text-transform: uppercase;
-    font-weight: 700;
-    color: var(--color-primary); /* Ice Blue */
-    margin-top: 8px; /* Jarak dengan angka dipertegas */
-    display: block;
-}
+            /* Padding dan Ukuran Ditingkatkan untuk Tampilan Lebih "Premium" */
+            padding: 18px 10px; 
+            min-width: 80px; 
+            border-radius: 20px; /* Sudut lebih membulat */
+            
+            /* Menggunakan Shadow Split Neumorphism untuk efek 3D timbul */
+            /* Diberi sedikit glow biru untuk menyatu dengan border */
+            box-shadow: var(--shadow-solid-light); 
+            
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            
+            /* Teks tetap neon blue dan menggunakan Orbitron */
+            color: #126bbe; 
+            font-family: 'Orbitron', monospace;
+        }
+
+        .countdown-item:hover {
+            /* Memberi efek tekan/timbul yang halus saat disentuh */
+            transform: translateY(-2px);
+            /* Bayangan sedikit lebih tajam saat hover */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(16, 162, 236, 0.5); 
+        }
+
+        .countdown-value {
+            font-size: 2.5rem; /* Ukuran lebih standar dan bersih */
+            font-weight: 700;
+            line-height: 1;
+            /* Hapus animasi glitch, kembalikan shadow ke glow yang halus */
+            text-shadow: 0 0 8px #1094ec; 
+            animation: none; /* Pastikan animasi glitch dinonaktifkan */
+        }
+
+        .countdown-label {
+            font-size: 0.7rem; 
+            font-weight: 400;
+            opacity: 0.8;
+            margin-top: 5px;
+            letter-spacing: 1px; /* Kurangi letter spacing dari versi glitch */
+        }
+
+
+/* ... (Sisa kode countdown di bawah ini tetap sama) ... */
 
 .expired {
     font-size: 1.35rem; /* Ukuran pesan selesai sedikit lebih besar */

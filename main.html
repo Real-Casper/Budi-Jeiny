@@ -692,76 +692,100 @@
 </body>
 
 
-
  
+    <!-- We don't need Tailwind here, using custom CSS for the specific effect -->
+    <style>
+        /* ----------------------------------- */
+        /* --------- WATERMARK STYLING ------- */
+        /* ----------------------------------- */
 
+        /* Google Fonts Orbitron - Needs to be at the top of the CSS file */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-<span class="mark-bottom-ce">
-    Design by © RealLabs Studio | CasperProjectofficial
-</span>
+        body {
+            /* Set a dark background to make the neon glow pop */
+            background-color: #1a1a2e; 
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-end; /* Push the watermark to the bottom */
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-/* ----------------------------------- */
-/* --------- WATERMARK STYLING ------- */
-/* ----------------------------------- */
+        .mark-bottom-ce {
+            display: block;
+            width: 100%;
+            /* Removed margin-top: 50px; here since the body flex-end handles position, 
+               but kept the original margins as defined in the Canvas for internal spacing. */
+            margin-top: 50px; 
+            margin-bottom: 20px;
+            text-align: center;
 
-.mark-bottom-ce {
-    display: block;
-    width: 100%;
-    margin-top: 50px;
-    margin-bottom: 20px;
-    text-align: center;
+            /* Futuristic Font */
+            font-family: 'Orbitron', 'Courier New', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1px;
 
-    /* Futuristic Font */
-    font-family: 'Orbitron', 'Courier New', monospace;
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 1px;
+            /* Gradient Text with multiple colors (ice blue → black → rose gold) */
+            background: linear-gradient(90deg, #05b3d6, #000000, #be4a5b);
+            
+            /* Ensure the text itself is transparent for all browsers */
+            color: transparent; 
+            
+            /* Clipping and text transparency for Webkit browsers */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
 
-    /* Gradient Text with multiple colors */
-    background: linear-gradient(90deg, #05b3d6, #000000, #be4a5b); /* ice blue → black → rose gold */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+            /* Standard background clip property for modern browsers (The fix) */
+            background-clip: text; 
 
-    /* Neon Glow */
-    text-shadow:
-        0 0 5px #0788a2,
-        0 0 10px #b76e79,
-        0 0 15px #000000;
-    opacity: 0.95;
+            /* Neon Glow */
+            text-shadow:
+                0 0 5px #0788a2,
+                0 0 10px #b76e79,
+                0 0 15px #000000;
+            opacity: 0.95;
 
-    /* Optional flicker animation */
-    animation: neon-flicker 10s infinite alternate;
-}
+            /* Optional flicker animation */
+            animation: neon-flicker 10s infinite alternate;
+        }
 
-/* Flicker animation */
-@keyframes neon-flicker {
-    0%, 20%, 40%, 60%, 80%, 100% {
-        text-shadow:
-            0 0 5px #a8f0ff,
-            0 0 10px #b76e79,
-            0 0 15px #000000;
-    }
-    10%, 30%, 50%, 70%, 90% {
-        text-shadow:
-            0 0 2px #a8f0ff,
-            0 0 5px #b76e79,
-            0 0 7px #000000;
-    }
-}
+        /* Flicker animation */
+        @keyframes neon-flicker {
+            0%, 20%, 40%, 60%, 80%, 100% {
+                text-shadow:
+                    0 0 5px #a8f0ff,
+                    0 0 10px #b76e79,
+                    0 0 15px #000000;
+            }
+            10%, 30%, 50%, 70%, 90% {
+                text-shadow:
+                    0 0 2px #a8f0ff,
+                    0 0 5px #b76e79,
+                    0 0 7px #000000;
+            }
+        }
 
-/* Responsive for Mobile */
-@media (max-width: 768px) {
-    .mark-bottom-ce {
-        font-size: 10px;
-        margin-top: 200px;
-    }
-}
+        /* Responsive for Mobile */
+        @media (max-width: 768px) {
+            .mark-bottom-ce {
+                font-size: 10px;
+                margin-top: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
 
-/* Google Fonts Orbitron */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-</style>
+    <!-- The HTML element provided in the query -->
+    <span class="mark-bottom-ce">
+        Design by &copy; RealLabs Studio | CasperProjectofficial
+    </span>
 
+</body>
 
 
 

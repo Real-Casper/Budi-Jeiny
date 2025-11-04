@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // --- COUNTDOWN ---
-        const weddingDate = new Date("February 14, 2026 09:00:00").getTime();
+        const weddingDate = new Date("Januari 11, 2026 09:00:00").getTime();
         const countdownEl = document.getElementById('countdown-timer');
 
         if (countdownEl) {
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (diff <= 0) {
                     clearInterval(update);
-                    countdownEl.innerHTML = "<div class='expired'>Alhamdulillah, kami telah Sah!</div>";
+                    countdownEl.innerHTML = "<div class='expired'>Puji Tuhan, kami telah Sah!</div>";
                     return;
                 }
 
