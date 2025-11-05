@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // --- COUNTDOWN ---
-        const weddingDate = new Date("Januari 11, 2026 09:00:00").getTime();
+        const weddingDate = new Date("Januari 11, 2026 00:00:00").getTime();
         const countdownEl = document.getElementById('countdown-timer');
 
         if (countdownEl) {

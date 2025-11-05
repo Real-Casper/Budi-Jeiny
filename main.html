@@ -107,7 +107,22 @@
 
       } else {
 
-        countdownElement.innerHTML = '<p>Acara telah dimulai!</p>';
+       countdownElement.innerHTML = `
+<div class="wedding-finish">
+    <h2 class="finish-title">Segala pujian bagi Tuhan!</h2>
+    <div class="finish-divider"></div>
+    <p class="finish-desc">
+        SATU DALAM CINTA, SATU DALAM TUHAN<br>
+        Dalam kasih Tuhan yang sempurna.<br>
+        Hari ini Kami menjadi satu dalam kasih-Nya.<br>
+        Kiranya kasih Tuhan<br>
+Menjadi dasar rumah tangga kami selamanya.
+    </p>
+    <p class="finish-date">MINGGU, 11 JANUARI 2026</p>
+    <p class="Emote">🙏💞</p>
+</div>
+`;
+
 
       }
 
@@ -346,48 +361,72 @@
   </div>
 </section>
 
-
 <section>
 <!-- MODAL POPUP TERPISAH (TIDAK GANGGU LAYOUT) -->
-<div id="wishes-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:9999; overflow:auto;">
-  <div style="position:relative; margin:5% auto; background:white; width:90%; max-width:800px; max-height:90vh; border-radius:15px; overflow:hidden; box-shadow:0 20px 40px rgba(0,0,0,0.3);">
-    <!-- HEADER MODAL -->
-    <div style="background:#17a2b8; color:white; padding:20px; text-align:center; position:relative;">
-      <h2 style="margin:0; font-size:1.6em;">📝 Buku Tamu - Semua Doa & Ucapan</h2>
-      <button id="close-modal" style="position:absolute; top:15px; right:20px; background:none; border:none; color:white; font-size:24px; cursor:pointer; padding:0; width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:background 0.2s;">
+<div id="wishes-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.55); backdrop-filter:blur(4px); z-index:9999; overflow:auto; animation:fadeBg .3s ease;">
+  <div style="position:relative; margin:5% auto; background:#ffffff; width:90%; max-width:800px; max-height:90vh; border-radius:18px; overflow:hidden; box-shadow:0 20px 45px rgba(0,0,0,0.35); opacity:0; transform:translateY(40px); animation:fadeInUp .45s ease forwards;">
+    
+    <!-- HEADER -->
+    <div style="background:linear-gradient(135deg,#d8a7b1,#a27588); color:white; padding:20px; text-align:center; position:relative;">
+      <h2 style="margin:0; font-size:1.7em; font-weight:700; letter-spacing:1px;">💌 Doa & Ucapan</h2>
+      
+      <button id="close-modal" style="
+        position:absolute; top:12px; right:15px;
+        width:34px; height:34px;
+        background:rgba(255,255,255,0.2); border:none;
+        border-radius:50%; color:white;
+        font-size:22px; cursor:pointer; display:flex;
+        align-items:center; justify-content:center;
+        transition:.25s;">
         ×
       </button>
     </div>
 
     <!-- LOADING -->
     <div id="modal-loading" style="padding:40px; text-align:center; display:none;">
-      <div style="border:4px solid #f3f3f3; border-top:4px solid #17a2b8; border-radius:50%; width:40px; height:40px; animation:spin 1s linear infinite; margin:0 auto 20px;"></div>
-      <p style="color:#666; margin:0;">Memuat ucapan...</p>
+      <div style="
+        border:4px solid #eee; border-top:4px solid #a27588;
+        border-radius:50%; width:40px; height:40px;
+        animation:spin 1s linear infinite; margin:0 auto 20px;"></div>
+      <p style="color:#555; margin:0;">Memuat ucapan...</p>
     </div>
 
     <!-- ISI MODAL -->
     <div id="modal-content" style="padding:25px; max-height:60vh; overflow-y:auto;">
       <div id="wishes-container-modal"></div>
     </div>
+
   </div>
 </div>
 </section>
 
 <style>
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% { transform:rotate(0deg); }
+  100% { transform:rotate(360deg); }
+}
+@keyframes fadeInUp {
+  from { opacity:0; transform:translateY(40px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes fadeBg {
+  from { opacity:0; }
+  to   { opacity:1; }
+}
+#close-modal:hover {
+  background:rgba(255,255,255,0.35) !important;
+  transform:scale(1.15);
 }
 
-/* RESPONSIVE MODAL */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   #wishes-modal > div {
-    margin: 2% auto;
-    width: 95%;
-    max-height: 95vh;
+    margin: 4% auto;
+    width: 94%;
+    max-height: 93vh;
   }
   #modal-content {
-    padding: 15px;
+    padding: 16px;
   }
 }
 </style>
@@ -550,13 +589,6 @@
 
  
     <style>
-        /* ----------------------------------- */
-        /* --------- GLOBAL STYLING ---------- */
-        /* ----------------------------------- */
-
-       
-         
- 
         /* ----------------------------------- */
         /* --------- GIFT CONTAINER ---------- */
         /* ----------------------------------- */
