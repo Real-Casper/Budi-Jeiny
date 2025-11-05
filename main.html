@@ -40,7 +40,7 @@
 <header>
     <div class="couple-block">
         <h1 class="full-names">Budi Santoso</h1>
-        <p class="parent-info">Putra Keenam Bpk. Eddy Santoso (Alm) dan Ibu. Aseni (Alm)</p>
+        <p class="parent-info">Putra Keenam dari Bpk. Eddy S (Alm)  dan Ibu. Aseni (Alm)</p>
     </div> 
     <span class="and">&</span>
     <div class="couple-block">
@@ -77,7 +77,7 @@
     <p class="Resepsi">Resepsi Pernikahan </p>
      <h3></h3>
      <p class="event-time"><i class="far fa-clock"></i> 16:00 - 22:00 WIB</p>
-     <p class="event-location"><i class="fas fa-map-marker-alt"></i> Gedung Serbaguna Puri Indah</p>
+     <p class="event-location"><i class="fas fa-map-marker-alt"></i> Rumah Kel. Tuju Tendean</p>
      <a href="#map-resepsi" class="btn-primary map-btn">Lihat Peta Lokasi</a>
    </div>
 </section>
@@ -461,17 +461,20 @@
             /* Membuat minimal 3 kolom di desktop/tablet */
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
+            
             max-width: 1100px;
             margin: 0 auto;
         }
 
         .gift-item {
-            background-color: #ffffff;
+            background-color: #d4dde6;
             border-radius: 15px;
+             border: 1px solid #ffffff;
             padding: 25px 20px;
             text-align: center;
+            
             /* Shadow modern */
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 16px rgba(216, 214, 214, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex; /* Untuk tata letak vertikal konten */
             flex-direction: column;
@@ -496,17 +499,12 @@
             filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
         }
 
-        .qr-code {
-            width: 120px;
-            height: 120px;
-            margin: 10px auto;
-            border-radius: 10px;
-            border: 3px solid #f0f0f0; /* Border ringan */
-        }
+        
 
         .gift-item p {
             margin: 3px 0;
             font-size: 0.95rem;
+            
         }
 
         .gift-item strong {
@@ -519,9 +517,9 @@
         .copy-btn {
             margin-top: 15px;
             padding: 8px 15px;
-            background-color: #f0f0f0; 
+            background-color: #d4dde6; 
             color: #333;
-            border: 1px solid #ddd;
+            border: 1px solid #ffffff;
             border-radius: 8px;
             cursor: pointer;
             font-size: 0.9rem;
@@ -567,7 +565,7 @@
 </head>
 <body>
 
-    <section id="gift" class="section">
+     <section id="gift" class="section">
         <h2 class="section-title">Gift / Hadiah</h2>
         <p class="intro-text">Jika berkenan memberikan hadiah, silakan pilih salah satu metode pembayaran berikut:</p>
 
@@ -575,30 +573,27 @@
             <div class="gift-item">
                 <img src="assets/BNI.jpg" alt="BNI" class="gift-icon">
                 <p><strong>BNI</strong></p>
-                <p>Jeiny & Budi</p>
-                <p>No. Rek: <span class="account-number">1234-5678-9012</span></p>
-                <button class="copy-btn" onclick="copyToClipboard('123456789012')">Salin</button>
+                <p>Jeiny Tuju</p>
+                <p>No. Rek: <span class="account-number">232735395</span></p>
+                <button class="copy-btn" onclick="copyToClipboard('232735395')">Salin</button>
             </div>
 
             <div class="gift-item">
                 <img src="assets/Dana.jpg" alt="DANA" class="gift-icon">
                 <p><strong>DANA</strong></p>
-                <p>Jeiny & Budi</p>
+                <p>Jeiny Tuju</p>
                 <p>No. HP: <span class="account-number">0812-4380-5201</span></p>
-                <button class="copy-btn" onclick="copyToClipboard('081234567890')">Salin</button>
+                <button class="copy-btn" onclick="copyToClipboard('081243805201')">Salin</button>
             </div>
-
-             
-
+ 
             <div class="gift-item">
                 <img src="assets/allobank.jpg" alt="AlloBank" class="gift-icon">
                 <p><strong>AlloBank</strong></p>
-                <p>Jeiny & Budi</p>
+                <p>Jeiny Tuju</p>
                 <p>No. Rek: <span class="account-number">0812-4380-5201</span></p>
-                <button class="copy-btn" onclick="copyToClipboard('123456789012')">Salin</button>
+                <button class="copy-btn" onclick="copyToClipboard('081243805201')">Salin</button>
             </div>
-
-             
+ 
         </div>
 
         <p class="thank-you">Terima kasih Atas Doa/ucapan Dan hadiahnya 💖</p>
