@@ -326,7 +326,7 @@ body {
 .and {
     /* ⚡️ AKSE N PEMISAH - Dibuat dengan Ice Blue yang kontras */
     font-family: var(--font-heading);
-    font-size: 0.8px ; /* Dibuat lebih besar dari nama untuk fokus */
+    font-size: 80px ; /* Dibuat lebih besar dari nama untuk fokus */
     font-weight: 700;
     line-height: 1;
     color: var(--color-primary); /* Ice Blue */
