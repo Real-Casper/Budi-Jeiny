@@ -5,50 +5,76 @@
    <title>Undangan Pernikahan Budi & Jeiny | Minggu, 11 Januari 2026</title>     
    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
  
-
   <!-- Import icon Font Awesome untuk ikon-ikon seperti jam, lokasi, dsb -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
- 
 <body class="main-page">
  <audio id="background-music" loop preload="auto">
   <source src="assets/song.mp3" type="audio/mp3">
     Browser Anda tidak mendukung elemen audio.
   </audio>
 
-
 <button id="music-toggle-btn" class="music-toggle-btn" aria-label="Toggle music">
    <i class="fas fa-volume-up"></i>
 </button>
- 
 
+<script> 
+    // ==========================
+    // Toggle Musik
+    // ==========================
+    const music = document.getElementById('background-music');
+
+    const toggleBtn = document.getElementById('music-toggle-btn');
+
+    const icon = toggleBtn.querySelector('i');
+
+    toggleBtn.addEventListener('click', () => {
+
+      if (music.paused) {
+
+        music.play();
+
+        icon.className = 'fas fa-volume-up'; 
+
+      } else {
+
+        music.pause();
+
+        icon.className = 'fas fa-volume-mute';
+
+      }
+
+    });
+
+    // =========================
+    // Autoplay Musik
+    // ==========================
+    document.addEventListener('DOMContentLoaded', () => {
+
+      if (sessionStorage.getItem('playMusicOnLoad') === 'true') {
+
+        music.play().catch(error => {});
+
+        sessionStorage.removeItem('playMusicOnLoad'); 
+
+      }
+
+    });
+
+  </script>
+ 
+ 
 <header class="main-header section" id="home">
-  <p class="Salam">SALAM DALAM KASIH KRISTUS </p>
-  <p class="intro-text">
-    Dengan penuh ucapan syukur atas anugerah dan penyertaan Tuhan Yesus,
-    kami mengundang Bapak/Ibu/Saudara/i untuk bersama merayakan momen sukacita
-    dimana Tuhan mempersatukan kami dalam pernikahan yang kudus.
-  </p>
-<p class="date-big">Minggu, 11 Januari 2026</p>
- 
-    <div class="couple-block">
-        <h1 class="full-names">Budi Santoso</h1>
-        <p class="parent-info">Putra Keenam dari Bpk. Eddy S (Alm)  dan Ibu. Aseni (Almh)</p>
-    </div> 
-    <span class="and">&</span>
-    <div class="couple-block">
-        <h1 class="full-names">Jeiny Tuju</h1>
-        <p class="parent-info">Putri kedua dari Bpk. Jopie Tuju (Alm) dan Ibu. Anneke Tendean (Almh) </p>
-    </div>
-</header>
-
- 
-    
-
+    <p class="Salam">SALAM DALAM KASIH KRISTUS </p>
+    <p class="intro-text">
+        Dengan penuh ucapan syukur atas anugerah dan penyertaan Tuhan Yesus,
+        kami mengundang Bapak/Ibu/Saudara/i untuk bersama merayakan momen sukacita
+        dimana Tuhan mempersatukan kami dalam pernikahan yang kudus.
+    </p>
+    <p class="date-big-main">Minggu, 11 Januari 2026</p>
   <!-- Countdown -->
-
 <section class="countdown-section section">
   <h2 class="section-title">Menuju Hari Pemberkatan</h2>
   <p class="countdown-intro">
@@ -57,29 +83,20 @@
   </p>
   <div id="countdown-timer" class="countdown-container"></div>
 </section>
-
-
-  <script>
-
+<script>
+ 
     // ==========================
-
     // Countdown Timer
-
     // ==========================
-
     const countdownDate = new Date('Januari 11, 2026 00:00:00').getTime();
 
     const countdownElement = document.getElementById('countdown-timer');
-
-
 
     function updateCountdown() { 
 
       const now = new Date().getTime();
 
       const distance = countdownDate - now;
-
-
 
       if (distance > 0) {
 
@@ -90,8 +107,6 @@
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-
 
         countdownElement.innerHTML = `
 
@@ -122,83 +137,41 @@ Menjadi dasar rumah tangga kami selamanya.
     <p class="Emote">🙏💞</p>
 </div>
 `;
-
-
       }
 
     }
 
-
-
-    setInterval(updateCountdown, 1000); 
+      setInterval(updateCountdown, 1000); 
 
     updateCountdown(); 
 
+</script>
 
 
-    // ==========================
+<header class="main-couple sections" id="couple">
+<h2 class="section-title">King and Queen of the day </h2>
+    <div class="couple-block groom-info">
+        <div class="photo-wrapper">
+            <img src="assets/2.jpg" alt="Foto Budi Santoso" class="photo-individual">
+        </div>
+        <div class="text-wrapper groom-text">
+            <h1 class="full-names">Budi Santoso</h1>
+            <p class="parent-info">Putra Keenam dari Bpk. Eddy S (Alm) dan Ibu. Aseni (Almh)</p>
+        </div>
+    </div> 
+    <span class="and">&</span>
+    <div class="couple-block bride-info">
+        <div class="photo-wrapper">
+            <img src="assets/1.jpg" alt="Foto Jeiny Tuju" class="photo-individual">
+        </div>
+        <div class="text-wrapper bride-text">
+            <h1 class="full-names">Jeiny Tuju</h1>
+            <p class="parent-info">Putri kedua dari Bpk. Jopie Tuju (Alm) dan Ibu. Anneke Tendean (Almh)</p>
+        </div>
+    </div>
+</header>
 
-    // Toggle Musik
-
-    // ==========================
-
-    const music = document.getElementById('background-music');
-
-    const toggleBtn = document.getElementById('music-toggle-btn');
-
-    const icon = toggleBtn.querySelector('i');
-
-
-
-    toggleBtn.addEventListener('click', () => {
-
-      if (music.paused) {
-
-        music.play();
-
-        icon.className = 'fas fa-volume-up'; 
-
-      } else {
-
-        music.pause();
-
-        icon.className = 'fas fa-volume-mute';
-
-      }
-
-    });
-
-
-
-    // ==========================
-
-    // Autoplay Musik
-
-    // ==========================
-
-    document.addEventListener('DOMContentLoaded', () => {
-
-      if (sessionStorage.getItem('playMusicOnLoad') === 'true') {
-
-        music.play().catch(error => {});
-
-        sessionStorage.removeItem('playMusicOnLoad'); 
-
-      }
-
-    });
-
-  </script>
  
- <style> 
-
-
-
-
- </style>
- 
- 
-
    <section class="event-details section" id="event">
      <h2 class="section-title">Detail Acara</h2>
      <div class="card event-card">
@@ -217,8 +190,6 @@ Menjadi dasar rumah tangga kami selamanya.
 </section>
 
  
-
-
 <section class="map-section section">
     <h2 class="section-title">Peta Lokasi Pemberkatan</h2>
     <p class="intro-text">Lokasi pemberkatan pernikahan kami akan diadakan di **GMIM Imanuel Tounelet**.</p>
@@ -234,12 +205,9 @@ Menjadi dasar rumah tangga kami selamanya.
     </a>
 </section>
 
-
 <section class="map-section section"  > 
     <h2 class="section-title">Peta Lokasi Resepsi</h2>
     <p class="intro-text">Lokasi resepsi pernikahan kami akan diadakan di **Rumah Kel. Tuju Tendean**.</p>
-
- 
     <div class="map-container">
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1887.7064876290465!2d124.83744908530808!3d1.149813689017851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1761894354996!5m2!1sid!2sid"
          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -249,12 +217,10 @@ Menjadi dasar rumah tangga kami selamanya.
     </a>
 </section>
 
-
 <section class="quote-section section">
     <p class="quote-text">“Demikianlah mereka bukan lagi dua, melainkan satu.” </p>
     <p class="quote-source">— "Matius 19:6" —</p>
 </section>
-
 
 <section class="gallery-section section" id="gallery">
     <h2 class="section-title">Galeri Foto Momen Kami</h2>
@@ -263,23 +229,25 @@ Menjadi dasar rumah tangga kami selamanya.
         <img src="assets/2.jpg" alt="Foto Prewedding Budi Jeiny 2" class="gallery-img">
         <img src="assets/3.jpg" alt="Foto Prewedding Budi Jeiny 3" class="gallery-img">
         <img src="assets/4.jpg" alt="Foto Prewedding Budi Jeiny 4" class="gallery-img">
+         
+        <img src="assets/1.jpg" alt="Foto Prewedding Budi Jeiny 1" class="gallery-img">
+        <img src="assets/2.jpg" alt="Foto Prewedding Budi Jeiny 2" class="gallery-img">
+        <img src="assets/3.jpg" alt="Foto Prewedding Budi Jeiny 3" class="gallery-img">
+        <img src="assets/4.jpg" alt="Foto Prewedding Budi Jeiny 4" class="gallery-img">
+         
     </div>
 </section>
-
-
 
 
 <section class="rsvp-section section" id="rsvp">
   <h2 class="section-title">Konfirmasi Kehadiran (RSVP)</h2>
   <p class="intro-text">Mohon konfirmasi kehadiran Anda dengan mengisi formulir di bawah ini.</p>
-
   <!-- FORM -->
   <form id="rsvpForm" class="rsvp-form">
     <div class="form-group">
       <label>Nama / Keluarga *</label>
       <input type="text" name="entry.2606285" required placeholder="Masukan Nama Atau Keluarga Anda...">
     </div>
-
     <div class="form-group">
       <label>Status Kehadiran *</label>
       <select name="entry.877086558" required>
@@ -289,22 +257,18 @@ Menjadi dasar rumah tangga kami selamanya.
         <option value="Belum Pasti Hadir">Belum Pasti Hadir</option>
       </select>
     </div>
-
     <div class="form-group">
       <label>Jumlah Kehadiran</label>
       <input type="number" name="entry.1498135098" value="1" min="1" max="10">
     </div>
-
     <button type="submit" class="rsvp-submit-btn">Kirim Konfirmasi</button>
   </form>
-
   <!-- PESAN SUKSES -->
   <div id="rsvp-success-message" style="display:none; text-align: center; padding: 30px; background-color: #d4edda; border: 2px solid #c3e6cb; border-radius: 10px; margin-top: 20px; font-family: inherit;">
     <h3 style="color: #155724; margin: 0;">Terima Kasih!</h3>
     <p style="color: #155724; margin: 10px 0 0 0;">Konfirmasi kehadiran Anda telah berhasil dikirim.</p>
   </div>
 </section>
-
 <!-- SCRIPT -->
 <script>
   document.getElementById('rsvpForm').addEventListener('submit', function(e) {
@@ -328,15 +292,11 @@ Menjadi dasar rumah tangga kami selamanya.
     });
   });
 </script>
-
-
 <!-- KODE DOA & UCAPAN SIAP PAKAI 100% BERHASIL -->
 <!-- Modal Popup Terpisah - Tidak Rusak Layout Utama -->
-
 <section class="guestbook-section section" id="guestbook">
   <h2 class="section-title">Doa & Ucapan</h2>
   <p class="intro-text">Tinggalkan doa dan ucapan terbaik Anda untuk Budi & Jeiny.</p>
-
   <!-- FORM GUESTBOOK -->
   <form id="guestbookForm" class="guestbook-form">
     <div class="form-group">
@@ -586,26 +546,22 @@ Menjadi dasar rumah tangga kami selamanya.
       }
     }
   });
-
   // MUAT COUNT SAAT HALAMAN DIBUKA
   window.addEventListener('load', loadWishes);
 </script>
- 
-
  
     <style>
         /* ----------------------------------- */
         /* --------- GIFT CONTAINER ---------- */
         /* ----------------------------------- */
-
         /* 💻 Tampilan Desktop/Tablet (Menggunakan Grid) */
         .gift-container {
             display: grid;
             /* Membuat minimal 3 kolom di desktop/tablet */
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+            gap: 29px;
             
-            max-width: 1100px;
+            max-width: auto;
             margin: 0 auto;
         }
 
@@ -690,7 +646,7 @@ Menjadi dasar rumah tangga kami selamanya.
         
         @media (max-width: 768px) {
             .gift-container {
-                display: flex; /* Ganti ke flex untuk scroll horizontal */
+                display: grid; /* Ganti ke flex untuk scroll horizontal */
                 flex-wrap: nowrap;
                 overflow-x: auto; /* Aktifkan scroll horizontal di mobile */
                 justify-content: flex-start;
@@ -705,7 +661,6 @@ Menjadi dasar rumah tangga kami selamanya.
             }
         }
     </style>
- 
  
 
      <section id="gift" class="section">
@@ -750,7 +705,8 @@ Menjadi dasar rumah tangga kami selamanya.
     </script>
  
 <footer class="main-footer section">
-    <p class="intro-text">Merupakan suatu kehormatan ...</p>
+    <p class="intro-text">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i sekalian berkenan hadir** untuk memberikan doa restu atas pernikahan kami. Atas kehadiran dan kasihnya, kami ucapkan terima kasih.
+    </p>
  
 <p class="sections-title">
     Kami yang Berbahagia,<br>
@@ -759,23 +715,71 @@ Menjadi dasar rumah tangga kami selamanya.
             <span class="nama-budi"> Keluarga Budi & Keluarga Jeiny </span>
         </strong>
     </span>
+   <div class="detail-keluarga">
+    <div class="grup-budi">
+        <span class="detail-budi">Eny Purwanti </span>
+        <span class="detail-budi">Ema Triyanti </span>
+    </div>
+
+    <div class="grup-jeiny">
+        <span class="detail-jeiny">kel. Surentu Tuju </span>
+        <span class="detail-jeiny">kel. Makausi Tuju </span>
+        <span class="detail-jeiny">kel. Tuju Kereh </span>
+    </div>
+</div>
+     
 </p>
-       <div class="nav-bottom">
+
+<style>
+
+ 
+/* 2. Pengaturan Detail Keluarga */
+.detail-keluarga {
+    /* 🔑 Kunci: Flexbox horizontal untuk grup Budi dan Jeiny */
+    display: flex;
+    justify-content: center; 
+     font-weight: 900; /* lebih bold */
+    gap: 80px; /* Jarak antara grup Budi dan grup Jeiny */
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 25px;
+    text-shadow: 0 4px 8px rgba(145, 16, 16, 0.2);
+    
+}
+/* 🔑 Kunci: Flexbox vertikal untuk item di dalam grup */
+.grup-budi, .grup-jeiny {
+    display: flex;
+    flex-direction: column; /* Membuat detail menumpuk ke bawah */
+    align-items: flex-start; /* Meratakan ke kiri untuk grup Budi */
+    /* Opsional: Jika ingin tengahkan, gunakan 'align-items: center;' */
+    line-height: 1.4; /* Jarak antar baris detail */
+}
+/* Penyesuaian responsif agar tidak tumpang tindih di HP */
+@media (max-width: 500px) {
+    .detail-keluarga {
+        flex-direction: column; /* Tumpuk grup Budi dan Jeiny di HP */
+        gap: 20px;
+    }
+    .grup-budi, .grup-jeiny {
+        align-items: center; /* Tengahkan semua detail saat ditumpuk */
+    }
+}
+
+</style>
+
+<div class="nav-bottom">
     <a href="#home" class="nav-item"><i class="fas fa-home"></i> Home</a>
+    <a href="#couple" class="nav-item"><i class="fas fa-heart"></i> Couple</a>
     <a href="#event" class="nav-item"><i class="far fa-calendar-alt"></i> Event</a>
     <a href="#gallery" class="nav-item"><i class="fas fa-camera"></i> Galeri</a>
     <a href="#rsvp" class="nav-item"><i class="fas fa-comment-dots"></i> RSVP</a>
     <a href="#guestbook" class="nav-item"><i class="fas fa-book"></i> Doa</a>
     <a href="#gift" class="nav-item"><i class="fas fa-gift"></i> Gift</a>
 </div>
-
  <!-- The HTML element provided in the query -->
     <span class="mark-bottom-ce">
         Design by &copy; RealLabs Studio | CasperProjectofficial
     </span>
-
-
-
 
  <style>
         .mark-bottom-ce {
@@ -784,12 +788,12 @@ Menjadi dasar rumah tangga kami selamanya.
             /* Removed margin-top: 50px; here since the body flex-end handles position, 
                but kept the original margins as defined in the Canvas for internal spacing. */
             margin-top: 50px; 
-            margin-bottom: 20px;
+            margin-bottom: 0px;
             text-align: center;
 
             /* Futuristic Font */
             font-family: 'Orbitron', 'Courier New', monospace;
-            font-size: 0.9rem;
+            font-size: 0.7rem;
             font-weight: 700;
             letter-spacing: 1px;
 

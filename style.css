@@ -253,21 +253,82 @@ body {
   background-color: var(--color-background-soft);
 }
 
+.sections {
+  padding: 23px 17px;
+  width: 100%;
+  
+  background-color: var(--color-background-soft);
+}
+
 .main-header {
    
   background-color: var(--color-background-soft);
 }
 
-
+.main-couple {
+   
+  background-color: var(--color-background-soft);
+}
 
 /* ================================================= */
 /* 2. Style Nama dan Informasi Orang Tua */
 /* ================================================= */
+
+/* --- TATA LETAK UTAMA (DESKTOP) --- */
 .couple-block {
-    margin-bottom: 25px; /* Memberi jarak antara setiap pasangan nama */
+    display: flex;
+    align-items: center; /* Menengahkan item secara vertikal */
+    margin: 40px auto; 
+    max-width: 750px; /* Lebar yang cukup untuk foto besar dan teks */
+    
 }
 
-/* GAYA UNTUK INTRO TEXT DI MAIN PAGE (Biasanya di bawah Main Header) */
+/* --- PENATAAN FOTO INDIVIDUAL (KOTAK TUMPUL & BESAR) --- */
+.photo-wrapper {
+    min-width: 220px; /* Wadah foto setidaknya selebar ini */
+}
+
+.photo-individual {
+    width: 260px; 
+    height: 260px; 
+    object-fit: cover; 
+    border: 3px solid #a87f5b; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); 
+    border-radius: 15px; /* Kotak Tumpul */
+}
+
+/* --- PENATAAN TEKS (Nama & Info Orang Tua) --- */
+.text-wrapper {
+    flex-grow: 1; 
+    padding: 0 15px;
+}
+
+/* --- 🤵 BLOCK PRIA (FOTO KIRI, TEKS KANAN) --- */
+.groom-info {
+    flex-direction: row; 
+}
+.groom-text {
+    text-align: left; 
+    padding-left: 30px; 
+}
+.groom-info .photo-wrapper {
+    margin-right: 30px; 
+}
+
+/* --- 👰 BLOCK WANITA (TEKS KIRI, FOTO KANAN) --- */
+.bride-info {
+    flex-direction: row-reverse; /* KUNCI: Membalik urutan */
+}
+.bride-text {
+    text-align: right; 
+    padding-right: 30px; 
+}
+.bride-info .photo-wrapper {
+    margin-left: 30px; 
+}
+
+/* --- GAYA TEKS --- */
+
 .intro-text {
     font-size: 0.95rem;
     color: var(--color-text-medium);
@@ -277,51 +338,53 @@ body {
     font-weight: 500;
     
     /* ⚡️ Sentuhan Neumorphism Inset (Disempurnakan) */
-    padding: 12px 10px; /* Ditingkatkan */
-    border-radius: 18px; /* Ditingkatkan */
+    padding: 12px 10px; 
+    border-radius: 18px; 
     background-color: var(--color-background-soft);
     box-shadow: var(--shadow-solid-inset); 
 }
 
- 
-
 .full-names {
     font-family: var(--font-heading);
     /*⚡️ WARNA ISI: ROSE GOLD */
-    font-size: 4.5rem; 
+     font-size: 2.4em; /* Nama lebih besar (Desktop) */
     font-weight: 600;
     color: #00bfff;
+    margin-bottom: 5px;
     margin: 10px 0 5px; 
-    /* ⚡️ OUTLINE: BLACK PEKAT */
-    -webkit-text-stroke: 1.5px #0b61bd; /* Outline Hitam Pekat */
+    
+    /* ⚡️ PERBAIKAN STROKE DESKTOP: Ganti dari biru #0b61bd menjadi hitam #000 */
+    -webkit-text-stroke: 1px var(--color-text-dark);
+     
      text-shadow: 0 4px 8px rgba(195, 22, 22, 0.2);   
      animation: fadeIn 0.9s ease-out forwards;
     transition: all 0.3s;
 }
-    .Salam {
+
+.Salam {
     font-display: var(--font-heading);
     letter-spacing: 2px;
     font-weight: 600;
     /* ⚡️ UKURAN DAN WARNA UTAMA */
-    font-size: 1rem; /* Dibuat sedikit lebih besar untuk kesan mewah */
-    color: #43040c; /* Warna teks isi (Rose Gold) */
-    margin: 10px 0 8px; /* Margin lebih ringkas */
+    font-size: 1rem; 
+    color: #43040c; 
+    margin: 10px 0 8px; 
     /* ⚡️ EFEK OUTLINE (TEXT STROKE) - Lebih Keren & Jelas */
-    -webkit-text-stroke: 1.5px #8f5757; /* Outline gelap */
-    text-shadow: 0 4px 8px rgba(145, 16, 16, 0.2); /* Bayangan lembut */
+    -webkit-text-stroke: 1.5px #8f5757; 
+    text-shadow: 0 4px 8px rgba(145, 16, 16, 0.2); 
     animation: fadeIn 0.9s ease-out forwards;
     transition: all 0.3s;
-
 }
+
 .and {
     /* ⚡️ AKSE N PEMISAH - Dibuat dengan Ice Blue yang kontras */
     font-family: var(--font-heading);
-    font-size: 80px ; /* Dibuat lebih besar dari nama untuk fokus */
+    font-size: 70px ; 
     font-weight: 700;
     line-height: 1;
-    color: var(--color-primary); /* Ice Blue */
-    margin: 0 0 15px 0; /* Memberi jarak di atas dan di bawah */
-    display: block; /* Memastikan & berada di barisnya sendiri */
+    color: var(--color-primary); 
+    margin: 0 0 15px 0; 
+    display: block; 
     opacity: 0;
     animation: fadeIn 0.98s ease-out forwards;
     animation-delay: 0.3s;
@@ -334,7 +397,7 @@ body {
     font-family: 'Times New Roman', serif; 
     
     /* Ukuran font default (untuk desktop) */
-     font-size: 0.8rem;
+    font-size: 0.9em;
     
     /* Jarak baris */
     line-height: 1.6;
@@ -350,31 +413,53 @@ body {
     padding: 0 10px;
     
     /* Jarak atas dan bawah */
-    margin: 15px 0 25px 0;
+    margin:7px 0 25px 0;
 }
 
- 
 
-/* Media Query untuk Mobile */
-@media (max-width: 600px) {
-    .parent-info {
-        font-size: 1rem; /* Sedikit dikecilkan di mobile */
-        margin: 10px 0 20px 0;
+/* --- RESPONSIF: Gabungan Semua Media Query (Hanya Mengatur Agar Tetap Sejajar & Muat) --- */
+
+@media (max-width: 768px) { 
+    /* couple-block di mobile tetap flex-direction: row/row-reverse (sejajar) */
+    .couple-block {
+        max-width: 95%; /* Maksimalisasi lebar agar tidak terpotong */
+        margin: 20px auto; 
     }
-} 
+    
+    /* Kecilkan Ukuran Foto */
+    .photo-individual {
+        width: 140px; 
+        height: 190px;
+    }
 
-/* Penyesuaian Responsif (Media Query dari kode sebelumnya) */
-@media (max-width: 550px) {
+    /* Kurangi Jarak Antar Foto dan Teks */
+    .groom-info .photo-wrapper, 
+    .bride-info .photo-wrapper {
+        margin:8px; 
+    }
+    
+    .groom-text, .bride-text {
+        padding: 0 0px; 
+    }
+
+    /* Penyesuaian font yang Anda tentukan di media query */
     .full-names {
-        font-size: 3.5rem; /* Ukuran nama di ponsel */
+        /* Menggunakan 2.4rem di mobile */
+        font-size: 2.1rem; 
+        /* Stroke mobile menggunakan warna dark yang Anda tentukan */
         -webkit-text-stroke: 1px var(--color-text-dark);
     }
+    
     .and {
-        font-size: 4rem; /* Ukuran & di ponsel */
+        /* Menggunakan 4rem jika lebar di bawah 550px */
+        font-size: 4rem; 
         margin-bottom: 10px;
     }
-    .couple-block {
-        margin-bottom: 20px;
+    
+    .parent-info {
+        /* Menggunakan 0.7rem jika lebar di bawah 600px */
+        font-size: 0.7rem; 
+        margin: 7px 0 0px 0;
     }
 }
 
@@ -421,6 +506,19 @@ body {
   margin: 28px 0;
 }
 
+.date-big-main {
+    /* Gaya untuk Tanggal Utama */
+ 
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #43040c; 
+    margin-top: 15px;
+    margin-bottom: 20px; 
+    letter-spacing: 3px; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    -webkit-text-stroke: 0.5px #8f5757; 
+}
+
 .intro-text {
   font-size: 0.95rem;
   color: var(--color-text-medium);
@@ -465,8 +563,8 @@ body {
             /* Menggunakan jarak yang sedikit lebih lebar untuk kesan modern */
             gap: 15px; 
             flex-wrap: wrap;
-            margin-top: 10vh; /* Sesuaikan dari 30px agar lebih ke tengah */
-            padding: 20px;
+            margin-top: 5vh; /* Sesuaikan dari 30px agar lebih ke tengah */
+            
         }
 
         /* Countdown Timer dengan Border (Menggabungkan .countdown-item & .time-box) */
@@ -546,11 +644,14 @@ body {
     }
 }
 
-/* COUNTDOWN SECTION - Peningkatan Tampilan */
 .countdown-section {
-    /* Menggunakan background soft dark mode */
-    background-color: var(--color-background-soft); 
-    padding: 50px 20px; /* Padding ditingkatkan untuk ruang nafas */
+    text-align: center;
+    padding: 20px 20px;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    border-radius: 15px; 
+    background-color: var(--color-background-soft, #f7f7f7); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .section-title {
@@ -568,12 +669,12 @@ body {
     font-size: 0.95rem;
     color: var(--color-text-medium);
     max-width: 450px;
-    margin: 0 auto 35px; /* Margin bawah dipertegas */
+    margin: 0 auto 45px; /* Margin bawah dipertegas */
     line-height: 1.8; /* Line height ditingkatkan untuk keterbacaan */
     font-weight: 500;
     
     /* Sentuhan Neumorphism Inset */
-    padding: 10px 15px; 
+    padding: 3px 2px; 
     border-radius: 12px;
     background-color: var(--color-background-soft);
     /* Bayangan Inset halus untuk membedakan teks dari background */
@@ -583,9 +684,10 @@ body {
 /* Section Title & Cards */
 .section-title {
   font-family: var(--font-heading);
-  font-size: 2.1rem;
+  font-size: 2.0rem;
   color: var(--color-rose-gold);
-  margin-bottom: 9px;
+  margin-bottom: 10px;
+    
 }
 
 .card {
