@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    
     <title>Undangan Pernikahan Budi & Jeiny</title>
-    <meta name="description" content="Dengan sukacita kami mengundang Anda untuk hadir.">
-
+    <meta name="description" content="Dengan sukacita kami mengundang Anda untuk hadir dalam perayaan pernikahan Budi & Jeiny">
+    
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://budi-jeiny.pages.dev/">
     <meta property="og:type" content="website">
@@ -18,200 +17,307 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- CSS Utama -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        /* GLOBAL RESET & BOX SIZING */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        html, body {
-            height: 100%;
-            width: 100%;
-            font-family: var(--font-body, 'Montserrat', sans-serif);
-            overflow-x: hidden; /* cegah scroll horizontal */
-            overflow-y: auto;   /* scroll vertical muncul jika konten tinggi */
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* lebih aman di HP kecil */
-            padding: 20px 16px;
-            background-image: url('assets/4.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: scroll; /* aman di mobile */
-        }
-
-        /* COVER */
-        .cover {
-            width: 90%; /* responsif */
-            max-width: 350px;
-            padding: 20px;
-            margin: 0;  /* Auto */
-            text-align: center;
-            animation: fadeIn var(--animation-duration, 1s) ease-out forwards;
-            opacity: 0;
-        }
-
-        /* NAMA TAMU */
-        #guest-name {
-            margin: 20px 0 12px;
-            font-size: 1.05rem;
-            line-height: 1.5;
-            color: var(--color-text-medium, #555);
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards;
-            animation-delay: 0.8s;
-        }
-        #guest-name strong {
-            font-weight: 700;
-            color: var(--color-black, #000);
-            font-size: 1.25em;
-            display: block;
-            margin-top: 6px;
-        }
-
-        /* JUDUL */
-        .cover h1 {
-            color: #001e65;
-            font-size: 1.55rem;
-            margin: 12px 0;
-            font-family: var(--font-heading, 'Great Vibes', cursive);
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards;
-            animation-delay: 0.8s;
-        }
-
-        /* NAMA PENGANTIN */
-        .cover .names {
-            font-size: 2.5rem;
-            margin: 6px 0;
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-        .cover .names:first-of-type,
-        .cover .names:last-of-type {
-            animation-delay: 1.1s;
-        }
-
-        .connector {
-            font-size: 2.1rem;
-            margin: 0 8px;
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards;
-            animation-delay: 1.2s;
-        }
-
-        .date-text {
-            font-size: 0.82rem;
-            max-width: 92%;
-            margin: 15px auto;
-            animation-delay: 1.4s;
-        }
-
-        .invitation-closer {
-            font-size: 0.90rem;
-            margin: 18px 0 20px;
-            animation-delay: 1.5s;
-        }
-
-        /* TOMBOL BUKA */
-        .open-btn {
-            width: 80%;
-            max-width: 240px;
-            padding: 11px 16px;
-            font-size: 0.96rem;
-            animation-delay: 1.7s;
-            cursor: pointer;
-        }
-
-        /* WATERMARK */
-        .mark-bottom-right {
-            position: fixed;
-            bottom: 8px;
-            right: 8px;
-            background: rgba(0, 0, 0, 0.1);
-            color: #660268;
-            padding: 0px 14px;
-            border-radius: 9px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 9px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 5px #b3e0f6, 0 0 10px #737173;
-            box-shadow: 0 0 11px rgba(149, 200, 237, 0.72);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            visibility: hidden;
-            z-index: 999;
-            animation: fadeIn 1s ease-out forwards;
-            animation-delay: 1.2s;
-            max-width: calc(100vw - 16px);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .mark-bottom-right:hover {
-            transform: scale(1.1) rotate(-2deg);
-            box-shadow: 0 0 3px rgba(84, 83, 84, 0.8), 0 0 20px rgba(142, 141, 142, 0.5);
-            background: rgba(0,0,0,0.6);
-            color: #e0e0e0;
-        }
-
-        /* MEDIA QUERY UNTUK HP KECIL */
-        @media (max-width: 480px) {
-            body { padding: 15px 10px; }
-            .cover { max-width: 95%; padding: 15px; }
-            .cover h1 { font-size: 1.5rem; }
-            .cover .names { font-size: 2rem; }
-            .connector { font-size: 1.7rem; }
-            .open-btn { font-size: 0.9rem; padding: 10px 12px; max-width: 220px; }
-        }
-
-        @media (max-height: 650px) {
-            body { padding: 10px 10px; }
-            .cover { padding: 12px 10px; }
-            .cover .names { font-size: 1.8rem; }
-            .cover h1 { font-size: 1.4rem; }
-        }
-    </style>
 </head>
 
-<body class="cover-page">
-    <div class="cover">
-        <div class="decorative-border-top"></div>
-        <div class="decorative-border-bottom"></div>
+<body>
+    <!-- COVER PAGE -->
+    <div id="cover-page" class="cover-page">
+        <div class="cover">
+            <div class="cover-content">
+                <img src="assets/cincin.png" alt="Cincin Pernikahan" class="ring-icon">
+                <p class="cover-to-guest">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+                <p class="cover-guest-name" id="guest-name-display">Keluarga Besar</p>
+                
+                <p class="cover-intro">Kami Mengundang Anda ke Pernikahan</p>
+                <h1 class="cover-names">Budi & Jeiny</h1>
+                <p class="cover-date">Minggu, 11 Januari 2026</p>
+                
+                <button class="open-btn" onclick="bukaUndangan()">
+                    <i class="fas fa-envelope-open-text"></i> BUKA UNDANGAN
+                </button>
+            </div>
+        </div>
 
-        <h2 id="guest-name"></h2>
-        <h1>Undangan Pernikahan</h1>
-
-        <p class="names">Budi</p>
-        <span class="connector">&</span>
-        <p class="names">Jeiny</p>
-
-        <p class="date-text">
-           Dalam kebahagiaan dan rasa syukur, kami mengundang Anda untuk hadir dalam perayaan hari bahagia kami.
-        </p>
-        <p class="date-big">
-            **Minggu, 11 Januari 2026**
-        </p>
-        <p class="invitation-closer">
-            Kami tunggu kehadiran Anda!
-        </p>
-
-        <button class="open-btn" onclick="bukaUndangan()">Buka Undangan</button>
+        <span class="mark-bottom-right">
+           Design by; © RealLabs Studio | CasperProjectofficial
+        </span>
     </div>
 
-    <span class="mark-bottom-right" style="visibility: hidden;">
-       Design by; © RealLabs Studio | CasperProjectofficial
-    </span>
+    <!-- MAIN CONTENT (Awalnya Disembunyikan) -->
+    <div id="main-content">
+        <audio id="background-music" loop preload="auto">
+            <source src="assets/song.mp3" type="audio/mp3">
+            Browser Anda tidak mendukung elemen audio.
+        </audio>
+
+        <button id="music-toggle-btn" class="music-toggle-btn" aria-label="Toggle music">
+            <i class="fas fa-volume-up"></i>
+        </button>
+
+        <!-- Home Section -->
+        <header class="main-header section" id="home">
+            <p class="Salam">SALAM DALAM KASIH KRISTUS</p>
+            <p class="intro-text">
+                Dengan penuh ucapan syukur atas anugerah dan penyertaan Tuhan Yesus,
+                kami mengundang Bapak/Ibu/Saudara/i untuk bersama merayakan momen sukacita
+                dimana Tuhan mempersatukan kami dalam pernikahan yang kudus.
+            </p>
+            <p class="date-big-main">Minggu, 11 Januari 2026</p>
+            
+            <section class="countdown-section section">
+                <h2 class="section-title">Menuju Hari Pemberkatan</h2>
+                <p class="countdown-intro">
+                    Dengan sukacita, kami menantikan hari yang telah Tuhan tetapkan
+                    untuk memulai kehidupan baru sebagai suami dan istri.
+                </p>
+                <div id="countdown-timer" class="countdown-container"></div>
+            </section>
+        </header>
+
+        <!-- Couple Section -->
+        <section class="main-couple section" id="couple">
+            <h2 class="section-title">King and Queen of the day</h2>
+            <div class="couple-container">
+                <div class="couple-block groom-info">
+                    <div class="photo-wrapper">
+                        <img src="assets/2.jpg" alt="Foto Budi Santoso" class="photo-individual">
+                    </div>
+                    <div class="text-wrapper groom-text">
+                        <h1 class="full-names">Budi Santoso</h1>
+                        <p class="parent-info">Putra Keenam dari Bpk. Eddy S (Alm) dan Ibu. Aseni (Almh)</p>
+                    </div>
+                </div> 
+                
+                <span class="and">&</span>
+                
+                <div class="couple-block bride-info">
+                    <div class="photo-wrapper">
+                        <img src="assets/1.jpg" alt="Foto Jeiny Tuju" class="photo-individual">
+                    </div>
+                    <div class="text-wrapper bride-text">
+                        <h1 class="full-names">Jeiny Tuju</h1>
+                        <p class="parent-info">Putri kedua dari Bpk. Jopie Tuju (Alm) dan Ibu. Anneke Tendean (Almh)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Details -->
+        <section class="event-details section" id="event">
+            <h2 class="section-title">Detail Acara</h2>
+            <div class="events-container">
+                <div class="card event-card">
+                    <p class="Pemberkatan">Pemberkatan Pernikahan</p>
+                    <p class="event-time"><i class="far fa-clock"></i> 13:00 WIB</p>
+                    <p class="event-location"><i class="fas fa-map-marker-alt"></i> GMIM Imanuel Tounelet</p> 
+                    <a href="#map-pemberkatan" class="btn-primary map-btn">Lihat Peta Lokasi</a> 
+                </div>
+                <div class="card event-card">
+                    <p class="Resepsi">Resepsi Pernikahan</p>
+                    <p class="event-time"><i class="far fa-clock"></i> 16:00 - 22:00 WIB</p>
+                    <p class="event-location"><i class="fas fa-map-marker-alt"></i> Rumah Kel. Tuju Tendean</p>
+                    <a href="#map-resepsi" class="btn-primary map-btn">Lihat Peta Lokasi</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Maps Section -->
+        <section class="map-section section" id="map-pemberkatan">
+            <h2 class="section-title">Peta Lokasi Pemberkatan</h2>
+            <p class="intro-text">Lokasi pemberkatan pernikahan kami akan diadakan di <strong>GMIM Imanuel Tounelet</strong>.</p>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d630.6202918128943!2d124.83855720403783!3d1.1514594562390406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3287479b1871623b%3A0x6ddcd08b942142fa!2sGMIM%20Imanuel%20Tounelet!5e0!3m2!1sid!2sid!4v1761893904995!5m2!1sid!2sid" 
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <a href="https://maps.app.goo.gl/aoX2UDov2pw2qEwH8" target="_blank" class="btn-primary map-btn">
+                Buka di Google Maps (Pemberkatan)
+            </a>
+        </section>
+        
+        <section class="map-section section" id="map-resepsi"> 
+            <h2 class="section-title">Peta Lokasi Resepsi</h2>
+            <p class="intro-text">Lokasi resepsi pernikahan kami akan diadakan di <strong>Rumah Kel. Tuju Tendean</strong>.</p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1887.7064876290465!2d124.83744908530808!3d1.149813689017851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1761894354996!5m2!1sid!2sid"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <a href="https://maps.app.goo.gl/hWRC32Zj9hXk46KV6" target="_blank" class="btn-primary map-btn">
+                Buka di Google Maps (Resepsi)
+            </a>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="quote-section section">
+            <p class="quote-text">"Demikianlah mereka bukan lagi dua, melainkan satu."</p>
+            <p class="quote-source">— Matius 19:6 —</p>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section section" id="gallery">
+            <h2 class="section-title">Galeri Foto Momen Kami</h2>
+            <div class="gallery-grid">
+                <img src="assets/1.jpg" alt="Foto Prewedding Budi Jeiny 1" class="gallery-img">
+                <img src="assets/2.jpg" alt="Foto Prewedding Budi Jeiny 2" class="gallery-img">
+                <img src="assets/3.jpg" alt="Foto Prewedding Budi Jeiny 3" class="gallery-img">
+                <img src="assets/4.jpg" alt="Foto Prewedding Budi Jeiny 4" class="gallery-img">
+                <img src="assets/1.jpg" alt="Foto Prewedding Budi Jeiny 1" class="gallery-img">
+                <img src="assets/2.jpg" alt="Foto Prewedding Budi Jeiny 2" class="gallery-img">
+                <img src="assets/3.jpg" alt="Foto Prewedding Budi Jeiny 3" class="gallery-img">
+                <img src="assets/4.jpg" alt="Foto Prewedding Budi Jeiny 4" class="gallery-img">
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section class="rsvp-section section" id="rsvp">
+            <h2 class="section-title">Konfirmasi Kehadiran (RSVP)</h2>
+            <p class="intro-text">Mohon konfirmasi kehadiran Anda dengan mengisi formulir di bawah ini.</p>
+            <form id="rsvpForm" class="rsvp-form">
+                <div class="form-group">
+                    <label>Nama / Keluarga *</label>
+                    <input type="text" name="entry.2606285" required placeholder="Masukan Nama Atau Keluarga Anda...">
+                </div>
+                <div class="form-group">
+                    <label>Status Kehadiran *</label>
+                    <select name="entry.877086558" required>
+                        <option value="">-- Pilih Status --</option>
+                        <option value="Ya, saya akan hadir">Ya, saya akan hadir</option>
+                        <option value="Maaf, saya tidak bisa hadir">Maaf, saya tidak bisa hadir</option>
+                        <option value="Belum Pasti Hadir">Belum Pasti Hadir</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Jumlah Kehadiran</label>
+                    <input type="number" name="entry.1498135098" value="1" min="1" max="10">
+                </div>
+                <button type="submit" class="rsvp-submit-btn">Kirim Konfirmasi</button>
+            </form>
+            <div id="rsvp-success-message" class="success-message">
+                <h3>Terima Kasih!</h3>
+                <p>Konfirmasi kehadiran Anda telah berhasil dikirim.</p>
+            </div>
+        </section>
+
+        <!-- Guestbook Section -->
+        <section class="guestbook-section section" id="guestbook">
+            <h2 class="section-title">Doa & Ucapan</h2>
+            <p class="intro-text">Tinggalkan doa dan ucapan terbaik Anda untuk Budi & Jeiny.</p>
+            <form id="guestbookForm" class="guestbook-form">
+                <div class="form-group">
+                    <label for="guest-name">Nama Anda *</label>
+                    <input type="text" id="guest-name" name="entry.1926356659" required placeholder="Masukan Nama Atau Keluarga Anda...">
+                </div>
+                <div class="form-group">
+                    <label for="guest-message">Doa/Ucapan *</label>
+                    <textarea id="guest-message" name="entry.1888886529" rows="4" required placeholder="Semoga bahagia selamanya..."></textarea>
+                </div>
+                <button type="submit" class="rsvp-submit-btn">Kirim Doa</button>
+            </form>
+
+            <div id="guestbook-success" class="success-message">
+                <h3>🙏 Terima Kasih!</h3>
+                <p>Doa dan ucapan Anda telah kami terima dengan penuh rasa syukur.</p>
+            </div>
+
+            <div class="wishes-button-container">
+                <button id="show-wishes-btn" class="rsvp-submit-btn wishes-btn">
+                    Lihat Semua Ucapan (0)
+                </button>
+            </div>
+        </section>
+
+        <!-- Wishes Modal -->
+        <div id="wishes-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>💌 Doa & Ucapan</h2>
+                    <button id="close-modal" class="close-btn">×</button>
+                </div>
+                <div id="modal-loading" class="modal-loading">
+                    <div class="loading-spinner"></div>
+                    <p>Memuat ucapan...</p>
+                </div>
+                <div id="modal-content" class="modal-body">
+                    <div id="wishes-container-modal"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gift Section -->
+        <section id="gift" class="gift-section section">
+            <h2 class="section-title">Gift / Hadiah</h2>
+            <p class="intro-text">Jika berkenan memberikan hadiah, silakan pilih salah satu metode pembayaran berikut:</p>
+
+            <div class="gift-container">
+                <div class="gift-item">
+                    <img src="assets/BCA.jpg" alt="BCA" class="gift-icon">
+                    <p><strong>BCA</strong></p>
+                    <p>Budi Santoso</p>
+                    <p>No. Rek: <span class="account-number">6120211585</span></p>
+                    <button class="copy-btn" onclick="copyToClipboard('6120211585')">Salin</button>
+                </div>
+
+                <div class="gift-item">
+                    <img src="assets/BNI.jpg" alt="BNI" class="gift-icon">
+                    <p><strong>BNI</strong></p>
+                    <p>Jeiny Tuju</p>
+                    <p>No. Rek: <span class="account-number">232735395</span></p>
+                    <button class="copy-btn" onclick="copyToClipboard('232735395')">Salin</button>
+                </div>
+            </div>
+
+            <p class="thank-you">Terima kasih Atas Doa/ucapan Dan hadiahnya 💖</p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="main-footer section">
+            <p class="intro-text">
+                Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i sekalian berkenan hadir untuk memberikan doa restu atas pernikahan kami. Atas kehadiran dan kasihnya, kami ucapkan terima kasih.
+            </p>
+        
+            <p class="sections-title">
+                Kami yang Berbahagia,<br>
+                <span class="nama-keluarga">
+                    <strong>
+                        <span class="nama-budi"> Keluarga Budi & Keluarga Jeiny </span>
+                    </strong>
+                </span>
+            </p>
+            <div class="detail-keluarga">
+                <div class="grup-budi">
+                    <span class="detail-budi">Eny Purwanti </span>
+                    <span class="detail-budi">Ema Triyanti </span>
+                </div>
+                <div class="grup-jeiny">
+                    <span class="detail-jeiny">kel. Surentu Tuju </span>
+                    <span class="detail-jeiny">kel. Makausi Tuju </span>
+                    <span class="detail-jeiny">kel. Tuju Kereh </span>
+                </div>
+            </div>
+
+            <div class="nav-bottom">
+                <a href="#home" class="nav-item"><i class="fas fa-home"></i> Home</a>
+                <a href="#couple" class="nav-item"><i class="fas fa-heart"></i> Couple</a>
+                <a href="#event" class="nav-item"><i class="far fa-calendar-alt"></i> Event</a>
+                <a href="#gallery" class="nav-item"><i class="fas fa-camera"></i> Galeri</a>
+                <a href="#rsvp" class="nav-item"><i class="fas fa-comment-dots"></i> RSVP</a>
+                <a href="#guestbook" class="nav-item"><i class="fas fa-book"></i> Doa</a>
+                <a href="#gift" class="nav-item"><i class="fas fa-gift"></i> Gift</a>
+            </div>
+            
+            <span class="mark-bottom-ce">
+                Design by © RealLabs Studio | CasperProjectofficial
+            </span>
+        </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
