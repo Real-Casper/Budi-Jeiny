@@ -4,8 +4,8 @@
 /* ================================================= */
 :root {
   /* WARNA DASAR */
-  --color-background-soft: #d4dde6;
-  --color-card-soft: #e8f1f9;
+  --color-background-soft: #69a0ff;
+  --color-card-soft: #e8f4ff;
   
   /* WARNA UTAMA & AKSEN */
   --color-primary: #A0D2EB;
@@ -130,6 +130,7 @@ body {
 .cover-to-guest {
   font-size: 1rem;
   margin-bottom: 10px;
+   text-shadow: 0 0 8px rgb(0, 0, 0);
   opacity: 0;
   animation: fadeIn 0.8s ease-out forwards;
   animation-delay: 0.7s;
@@ -149,6 +150,7 @@ body {
 .cover-intro {
   font-size: 0.9rem;
   margin-bottom: 30px;
+   text-shadow: 0 0 8px rgba(0, 0, 0, 0.91);
   opacity: 0;
   animation: fadeIn 0.8s ease-out forwards;
   animation-delay: 0.9s;
@@ -179,6 +181,7 @@ body {
     0 0 10px rgba(0, 125, 249, 0.921);
 
   /* Animasi */
+   text-shadow: 0 0 8px rgb(0, 0, 0);
   opacity: 0;
   animation: fadeIn 0.8s cubic-bezier(0.17, 0.84, 0.44, 1) forwards;
   animation-delay: 0.3s;
@@ -190,6 +193,7 @@ body {
   font-weight: 600;
   color: #ddd;
   opacity: 0;
+   text-shadow: 0 0 8px rgb(0, 0, 0);
   animation: fadeIn 0.8s ease-out forwards;
   animation-delay: 1.1s;
 }
@@ -239,10 +243,48 @@ body {
 /* 4. MAIN CONTENT */
 /* ================================================= */
 #main-content {
-  display: none;
-  min-height: 100vh;
+    display: none;
+    min-height: 100vh;
+    padding: 50px 20px;
+    
+    /* Auto-positioning dan scaling tetap dipertahankan */
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    
+    /* ❗ TAMBAHKAN ANIMASI SLIDESHOW */
+    animation: backgroundSlide 30s infinite ease-in-out; 
+    /* 30s: Durasi total siklus (misalnya, 3 gambar @ 10 detik per gambar) */
+    /* infinite: Berjalan terus menerus */
+    /* ease-in-out: Transisi yang halus */
 }
 
+@keyframes backgroundSlide {
+    /* Gambar 1 (muncul 0% hingga 33%) */
+    0% {
+        background-image: url('assets/1.png');
+    }
+    33% {
+        background-image: url('assets/2.png');
+    }
+
+    /* Gambar 2 (muncul 34% hingga 66%) */
+    34% {
+        background-image: url('assets/3.png');
+    }
+    66% {
+        background-image: url('assets/4.png');
+    }
+
+    /* Gambar 3 (muncul 67% hingga 100%) */
+    67% {
+        background-image: url('assets/5.png');
+    }
+    100% {
+        background-image: url('assets/Bg_Depan.png');
+    }
+}
 .section {
   padding: 50px 20px;
   width: 100%;
@@ -252,20 +294,22 @@ body {
   background-color: var(--color-background-soft);
 }
 
+
+
 .Salam {
-  font-family: var(--font-heading);
+   
   letter-spacing: 2px;
   font-weight: 600;
   font-size: 1.2rem;
-  color: #43040c;
+  color: #0004ff;
   margin: 10px 0 20px;
-  -webkit-text-stroke: 1px #8f5757;
-  text-shadow: 0 4px 8px rgba(145, 16, 16, 0.2);
+  -webkit-text-stroke: 1px #ffffff;
+  text-shadow: 0 4px 8px rgb(0, 0, 0);
 }
 
 .intro-text {
   font-size: 0.95rem;
-  color: var(--color-text-medium);
+  color: #ffffff;
   max-width: 600px;
   margin: 0 auto 30px;
   line-height: 1.7;
@@ -349,6 +393,11 @@ body {
 }
 
 /* Couple Section */
+.main-couple {
+  background-color: var(--color-background-soft);
+}
+
+
 .couple-container {
   display: flex;
   flex-direction: column;
@@ -416,6 +465,11 @@ body {
 }
 
 /* Events */
+.event-details {
+  background-color: var(--color-background-soft);
+}
+
+
 .events-container {
   display: flex;
   flex-direction: column;
@@ -469,6 +523,11 @@ body {
 }
 
 /* Maps */
+.map-section {
+  background-color: var(--color-background-soft);
+}
+
+
 .map-container {
   max-width: 600px;
   margin: 25px auto 0;
@@ -486,13 +545,15 @@ body {
 
 /* Quote */
 .quote-section {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-rose-gold));
-  color: white;
-  border-radius: 15px;
-  padding: 50px 25px;
-  margin: 30px auto;
+font-size: 0.95rem;
+  color: #ffffff;
   max-width: 600px;
-  box-shadow: var(--shadow-deep);
+  margin: 0 auto 30px;
+  line-height: 1.7;
+  padding: 15px;
+  border-radius: 12px;
+  background-color: var(--color-background-soft);
+  box-shadow: var(--shadow-solid-inset);
 }
 
 .quote-text {
@@ -507,6 +568,11 @@ body {
 }
 
 /* Gallery */
+
+.gallery-section {
+  background-color: var(--color-background-soft);
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -531,6 +597,10 @@ body {
 }
 
 /* Forms */
+.rsvp-section {
+  background-color: var(--color-background-soft);
+}
+
 .rsvp-form, .guestbook-form {
   max-width: 400px;
   margin: 20px auto;
@@ -618,7 +688,19 @@ body {
   max-width: 250px;
 }
 
+
+/* GuestBook Section */
+.guestbook-section {
+  background-color: var(--color-background-soft);
+}
+
+
+
 /* Gift Section */
+.gift-section {
+  background-color: var(--color-background-soft);
+}
+
 .gift-container {
   display: flex;
   justify-content: center;
