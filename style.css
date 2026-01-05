@@ -301,10 +301,10 @@ body {
   letter-spacing: 2px;
   font-weight: 600;
   font-size: 1.2rem;
-  color: #0004ff;
+  color: #ff0000;
   margin: 10px 0 20px;
-  -webkit-text-stroke: 1px #ffffff;
-  text-shadow: 0 4px 8px rgb(0, 0, 0);
+  -webkit-text-stroke: 1px #d30000;
+  text-shadow: 0 4px 8px rgb(255, 255, 255);
 }
 
 .intro-text {
@@ -443,9 +443,9 @@ body {
   font-family: var(--font-heading);
   font-size: 3.5rem;
   font-weight: 600;
-  color: #00bfff;
+  color: #ff0000;
   margin-bottom: 10px;
-  -webkit-text-stroke: 1.5px #0b61bd;
+  -webkit-text-stroke: 0.1px #545252;
 }
 
 .parent-info {
@@ -823,11 +823,11 @@ font-size: 0.95rem;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 1px;
-  background: linear-gradient(90deg, #404344, #b8b7b7, #be4a5b);
+  background: linear-gradient(90deg, #01b8f6, #b8b7b7, #be4a5b);
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  text-shadow: 0 0 5px #0788a2, 0 0 10px #b76e79;
+  text-shadow: 0 0 5px #ffffff, 0 0 10px #b76e79;
   animation: neon-flicker 3s infinite alternate;
 }
 
