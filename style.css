@@ -823,11 +823,11 @@ font-size: 0.95rem;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 1px;
-  background: linear-gradient(90deg, #01b8f6, #b8b7b7, #be4a5b);
+  background: linear-gradient(90deg, #01b8f6, #dd4d4d, #be4a5b);
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  text-shadow: 0 0 5px #ffffff, 0 0 10px #b76e79;
+  text-shadow: 0 0 5px #6c6a6a, 0 0 10px #b76e79;
   animation: neon-flicker 3s infinite alternate;
 }
 
