@@ -9,7 +9,7 @@
   
   /* WARNA UTAMA & AKSEN */
   --color-primary: #A0D2EB;
-  --color-rose-gold: #B76E79;
+  --color-rose-gold: #d22b44;
   --color-black: #2c2c2c;
   
   /* WARNA TEKS */
@@ -140,7 +140,7 @@ body {
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 20px;
-  color: #4986f8;
+  color: #000000;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   opacity: 0;
   animation: fadeIn 0.8s ease-out forwards;
@@ -823,7 +823,7 @@ font-size: 0.95rem;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 1px;
-  background: linear-gradient(90deg, #05b3d6, #000000, #be4a5b);
+  background: linear-gradient(90deg, #404344, #b8b7b7, #be4a5b);
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
